@@ -1,0 +1,22 @@
+% Gerado por conferir_calculos.py — não editar à mão
+\begin{table}[htb]
+\centering
+\small
+\caption{Validação do algoritmo SAC ($PV=10\,000$; $i=0{,}01$; $n=120$): valor exato, valor exibido e erro relativo da implementação em ponto flutuante}
+\label{tab:sac-validacao}
+\begin{tabular}{lrrrc}
+\hline
+Mês ($k$) & $P_k$ exato & Exibido (2 casas) & $E_r$ (float $\times$ exato) & Confere \\
+\hline
+1 & 183{,}333333 & R\$~183{,}33 & $1{,}0\times 10^{-16}$ & sim \\
+60 & 134{,}166667 & R\$~134{,}17 & $7{,}1\times 10^{-17}$ & sim \\
+120 & 84{,}166667 & R\$~84{,}17 & $1{,}1\times 10^{-16}$ & sim \\
+Total de juros & 6.050{,}000000 & R\$~6.050{,}00 & $6{,}0\times 10^{-16}$ & sim \\
+\hline
+\multicolumn{3}{l}{Maior $E_r$ nas 120 prestações} & $8{,}2\times 10^{-16}$ & \\
+\multicolumn{3}{l}{Saldo final (exato $=0$): erro absoluto} & $8{,}8\times 10^{-13}$ & \\
+\hline
+\end{tabular}
+\par\vspace{0.1cm}
+{\small Fonte: Elaborada pelo autor (2026), a partir do script \texttt{conferir\_calculos.py} (Apêndice~\ref{ap:registro}). Valores exatos em aritmética racional; exibição arredondada ao centavo (meio para cima).}
+\end{table}

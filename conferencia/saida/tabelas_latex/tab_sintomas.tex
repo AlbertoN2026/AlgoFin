@@ -1,0 +1,26 @@
+% Gerado por conferir_calculos.py — não editar à mão
+\begin{table}[htb]
+\centering
+\small
+\caption{Valores produzidos por erros comuns de implementação ($PV=10\,000$; $i=1\%$; $n=120$), usados para localizar a origem de divergências}
+\label{tab:sintomas}
+\begin{tabular}{llrr}
+\hline
+Sistema & Implementação & $P_1$ ou $PMT$ & Juros totais \\
+\hline
+Price & correto & 143{,}47 & 7.216{,}51 \\
+Price & taxa em \% não convertida (i = 1) & 10.000{,}00 & --- \\
+Price & taxa convertida duas vezes (i = 0,0001) & 83{,}84 & --- \\
+Price & expoente positivo: PV$\cdot$i/[1$-$$(1+i)^n$] & -43{,}47 & --- \\
+Price & PV$(1+i)^n$/n (montante dividido em n) & 275{,}03 & --- \\
+Price & PV(1+in)/n (juros simples) & 183{,}33 & --- \\
+Price & taxa anual 12\% usada como mensal & 1.200{,}00 & --- \\
+SAC & correto & 183{,}33 & 6.050{,}00 \\
+SAC & juros sempre sobre PV & 183{,}33 & 12.000{,}00 \\
+SAC & juros sobre o saldo já amortizado & 182{,}50 & 5.950{,}00 \\
+SAC & laço \texttt{range(1, n)}: 119 prestações, saldo final $\neq$ 0 & 183{,}33 & 6.049{,}17 \\
+\hline
+\end{tabular}
+\par\vspace{0.1cm}
+{\small Fonte: Elaborada pelo autor (2026).}
+\end{table}

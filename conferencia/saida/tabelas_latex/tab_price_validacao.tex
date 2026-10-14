@@ -1,0 +1,24 @@
+% Gerado por conferir_calculos.py — não editar à mão
+\begin{table}[htb]
+\centering
+\small
+\caption{Sistema Price ($PV=10\,000$; $i=0{,}01$; $n=120$): linhas selecionadas da tabela exata e erro relativo da implementação em ponto flutuante}
+\label{tab:price-validacao}
+\begin{tabular}{lrrrr}
+\hline
+Mês ($k$) & Juros $J_k$ & Amortização $A_k$ & Prestação & Saldo $SD_k$ \\
+\hline
+1 & 100{,}00 & 43{,}47 & 143{,}47 & 9.956{,}53 \\
+2 & 99{,}57 & 43{,}91 & 143{,}47 & 9.912{,}62 \\
+60 & 65{,}28 & 78{,}19 & 143{,}47 & 6.449{,}74 \\
+119 & 2{,}83 & 140{,}64 & 143{,}47 & 142{,}05 \\
+120 & 1{,}42 & 142{,}05 & 143{,}47 & 0{,}00 \\
+Total & 7.216{,}51 & 10.000{,}00 & 17.216{,}51 & \\
+\hline
+\multicolumn{4}{l}{Maior $E_r$ nas prestações (float $\times$ exato)} & $4{,}6\times 10^{-16}$ \\
+\multicolumn{4}{l}{Maior $E_r$ nos juros (float $\times$ exato)} & $1{,}6\times 10^{-14}$ \\
+\hline
+\end{tabular}
+\par\vspace{0.1cm}
+{\small Fonte: Elaborada pelo autor (2026). Valores em reais, arredondados ao centavo apenas na exibição.}
+\end{table}
