@@ -1,0 +1,152 @@
+<ConsumoScreen>:
+    MDBoxLayout:
+        orientation: 'vertical'
+        md_bg_color: 0.95, 0.95, 0.97, 1
+        
+        MDTopAppBar:
+            title: "3. Consumo Consciente"
+            elevation: 2
+            left_action_items: [["arrow-left", lambda x: root.voltar()]]
+
+        ScrollView:
+            MDBoxLayout:
+                orientation: 'vertical'
+                padding: "16dp"
+                spacing: "20dp"
+                adaptive_height: True
+
+                # Robô
+                MDBoxLayout:
+                    id: balao_robo
+                    orientation: 'horizontal'
+                    size_hint_y: None
+                    height: self.minimum_height
+                    spacing: "12dp"
+                    
+                    MDIcon:
+                        icon: "robot-outline"
+                        font_size: "54sp"
+                        theme_text_color: "Custom"
+                        text_color: app.theme_cls.primary_color
+                        pos_hint: {"top": 1}
+                        
+                    MDCard:
+                        orientation: 'vertical'
+                        md_bg_color: 0.85, 0.92, 0.98, 1
+                        radius: [0, 20, 20, 20]
+                        padding: "16dp"
+                        spacing: "8dp"
+                        size_hint_y: None
+                        height: self.minimum_height
+                        elevation: 1
+                        
+                        MDLabel:
+                            text: root.titulo_robo
+                            font_style: "Subtitle2"
+                            bold: True
+                            theme_text_color: "Primary"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+                            
+                        MDLabel:
+                            text: root.fala_robo
+                            font_style: "Caption"
+                            theme_text_color: "Secondary"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+
+                # Cabeçalho da Fase (Armadilha Psicológica)
+                MDBoxLayout:
+                    orientation: 'horizontal'
+                    size_hint_y: None
+                    height: "30dp"
+                    spacing: "8dp"
+                    
+                    MDIcon:
+                        icon: root.icone_fase
+                        theme_text_color: "Error"
+                        font_size: "24sp"
+                        
+                    MDLabel:
+                        text: root.titulo_fase
+                        font_style: "H6"
+                        bold: True
+                        size_hint_y: None
+                        height: self.texture_size[1]
+
+                # Painel de Orçamento
+                MDCard:
+                    size_hint_y: None
+                    height: "70dp"
+                    padding: "12dp"
+                    radius: [15]
+                    md_bg_color: (0.1, 0.6, 0.2, 0.1) if root.orcamento_atual >= 0 else (0.8, 0.1, 0.1, 0.1)
+                    elevation: 0
+                    MDBoxLayout:
+                        orientation: 'vertical'
+                        MDLabel:
+                            text: "Seu Saldo Restante:"
+                            font_style: "Caption"
+                        MDLabel:
+                            text: f"R$ {root.orcamento_atual:.2f}"
+                            font_style: "H5"
+                            bold: True
+                            theme_text_color: "Custom"
+                            text_color: (0.1, 0.5, 0.1, 1) if root.orcamento_atual >= 0 else (0.8, 0.1, 0.1, 1)
+
+                MDLabel:
+                    text: f"Decisão {root.item_atual_index + 1} de {root.total_itens}"
+                    halign: "center"
+                    font_style: "Caption"
+                    bold: True
+
+                # O Produto da Vez
+                MDCard:
+                    orientation: 'vertical'
+                    padding: "20dp"
+                    spacing: "16dp"
+                    size_hint_y: None
+                    height: "250dp"
+                    radius: [15]
+                    elevation: 2
+                    
+                    MDIcon:
+                        icon: root.icone_produto
+                        font_size: "80sp"
+                        halign: "center"
+                        theme_text_color: "Custom"
+                        text_color: app.theme_cls.primary_color
+                        
+                    MDLabel:
+                        text: root.nome_produto
+                        font_style: "Subtitle1"
+                        bold: True
+                        halign: "center"
+                        
+                    MDLabel:
+                        text: f"R$ {root.preco_produto:.2f}"
+                        font_style: "H5"
+                        bold: True
+                        halign: "center"
+                        theme_text_color: "Error"
+
+                # Botões de Ação
+                MDBoxLayout:
+                    orientation: 'horizontal'
+                    spacing: "16dp"
+                    size_hint_y: None
+                    height: "60dp"
+
+                    MDRaisedButton:
+                        text: "DESCARTAR (Desejo)"
+                        md_bg_color: 0.8, 0.2, 0.2, 1
+                        size_hint_x: 0.5
+                        font_size: "13sp"
+                        on_release: root.processar_escolha("descartar")
+
+                    MDRaisedButton:
+                        text: "COMPRAR (Necessidade)"
+                        md_bg_color: 0.2, 0.7, 0.3, 1
+                        size_hint_x: 0.5
+                        font_size: "13sp"
+                        on_release: root.processar_escolha("comprar")

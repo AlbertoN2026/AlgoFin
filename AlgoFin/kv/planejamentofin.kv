@@ -1,0 +1,265 @@
+<PlanejamentoFinScreen>:
+    MDBoxLayout:
+        orientation: 'vertical'
+        md_bg_color: 0.95, 0.95, 0.97, 1
+
+        MDTopAppBar:
+            title: "4. Planejamento Financeiro"
+            elevation: 2
+            left_action_items: [["arrow-left", lambda x: root.voltar()]]
+
+        ScrollView:
+            MDBoxLayout:
+                orientation: 'vertical'
+                padding: "16dp"
+                spacing: "24dp"
+                adaptive_height: True
+
+                # ==========================================
+                # BLOCO 1: FUNDAMENTOS TEÓRICOS
+                # ==========================================
+                MDCard:
+                    orientation: 'vertical'
+                    padding: "20dp"
+                    spacing: "12dp"
+                    size_hint_y: None
+                    height: self.minimum_height
+                    radius: [15]
+                    md_bg_color: 1, 1, 1, 1
+                    elevation: 2
+
+                    MDLabel:
+                        text: "A Regra 50-30-20"
+                        font_style: "H6"
+                        bold: True
+                        theme_text_color: "Primary"
+
+                    MDLabel:
+                        text: "Um bom algoritmo financeiro divide a sua renda mensal em três blocos exatos para evitar o endividamento e garantir o seu futuro:"
+                        font_style: "Body2"
+                        theme_text_color: "Secondary"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        
+                    MDLabel:
+                        text: "• [b]50% Necessidades:[/b] Moradia, comida, contas básicas.\n• [b]30% Desejos:[/b] Lazer, compras, passeios.\n• [b]20% Poupança:[/b] Investimentos e reserva de emergência."
+                        markup: True
+                        font_style: "Body2"
+                        theme_text_color: "Primary"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+
+                # ==========================================
+                # O TUTOR IA (ANIMAÇÃO)
+                # ==========================================
+                MDBoxLayout:
+                    id: balao_robo
+                    opacity: 0
+                    orientation: 'horizontal'
+                    size_hint_y: None
+                    height: self.minimum_height
+                    spacing: "12dp"
+
+                    MDIcon:
+                        icon: "robot-excited-outline"
+                        font_size: "54sp"
+                        theme_text_color: "Custom"
+                        text_color: app.theme_cls.primary_color
+                        pos_hint: {"top": 1}
+
+                    MDCard:
+                        id: card_fala
+                        orientation: 'vertical'
+                        md_bg_color: 0.85, 0.92, 0.98, 1
+                        radius: [0, 20, 20, 20]
+                        padding: "16dp"
+                        spacing: "8dp"
+                        size_hint_y: None
+                        height: self.minimum_height
+                        elevation: 1
+
+                        MDLabel:
+                            text: "Consultor Ativado!"
+                            font_style: "Subtitle2"
+                            bold: True
+                            theme_text_color: "Primary"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+                        MDLabel:
+                            text: "Sua missão é equilibrar o orçamento. O dinheiro que sobrar das Necessidades e Desejos vai automaticamente para a sua Poupança. Não deixe a poupança ficar no vermelho!"
+                            font_style: "Caption"
+                            theme_text_color: "Secondary"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+
+                # ==========================================
+                # BLOCO 2: DASHBOARD DO ORÇAMENTO
+                # ==========================================
+                MDCard:
+                    orientation: 'vertical'
+                    padding: "20dp"
+                    spacing: "16dp"
+                    size_hint_y: None
+                    height: self.minimum_height
+                    radius: [15]
+                    md_bg_color: 0.15, 0.15, 0.2, 1 
+
+                    MDLabel:
+                        text: f"RENDA TOTAL: R$ {root.renda_val:.2f}"
+                        font_style: "Subtitle1"
+                        bold: True
+                        theme_text_color: "Custom"
+                        text_color: 1, 1, 1, 1
+                        halign: "center"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+
+                    MDSeparator:
+                        color: 0.4, 0.4, 0.4, 1
+
+                    # Necessidades
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+                        size_hint_y: None
+                        height: self.minimum_height
+                        MDLabel:
+                            text: f"Necessidades ({root.perc_necessidades:.0f}%):"
+                            font_style: "Subtitle2"
+                            theme_text_color: "Custom"
+                            text_color: 1, 1, 1, 1
+                            size_hint_y: None
+                            height: self.texture_size[1]
+                        MDLabel:
+                            text: f"R$ {root.necessidades_val:.2f}"
+                            font_style: "Body1"
+                            theme_text_color: "Custom"
+                            text_color: (0.9, 0.3, 0.3, 1) if root.perc_necessidades > 50 else (0.4, 0.8, 0.4, 1)
+                            halign: "right"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+
+                    # Desejos
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+                        size_hint_y: None
+                        height: self.minimum_height
+                        MDLabel:
+                            text: f"Desejos ({root.perc_desejos:.0f}%):"
+                            font_style: "Subtitle2"
+                            theme_text_color: "Custom"
+                            text_color: 1, 1, 1, 1
+                            size_hint_y: None
+                            height: self.texture_size[1]
+                        MDLabel:
+                            text: f"R$ {root.desejos_val:.2f}"
+                            font_style: "Body1"
+                            theme_text_color: "Custom"
+                            text_color: (0.9, 0.3, 0.3, 1) if root.perc_desejos > 30 else (0.4, 0.8, 0.4, 1)
+                            halign: "right"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+
+                    # Poupança (O que sobra)
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+                        size_hint_y: None
+                        height: self.minimum_height
+                        MDLabel:
+                            text: f"POUPANÇA ({root.perc_poupanca:.0f}%):"
+                            font_style: "Subtitle2"
+                            bold: True
+                            theme_text_color: "Custom"
+                            text_color: 1, 1, 1, 1
+                            size_hint_y: None
+                            height: self.texture_size[1]
+                        MDLabel:
+                            text: f"R$ {root.poupanca_calc:.2f}"
+                            font_style: "H6"
+                            bold: True
+                            theme_text_color: "Custom"
+                            text_color: (0.4, 0.8, 0.4, 1) if root.perc_poupanca >= 20 else (0.9, 0.3, 0.3, 1)
+                            halign: "right"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+
+                # ==========================================
+                # OS SLIDERS INTERATIVOS 
+                # ==========================================
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: "60dp"
+                    MDLabel:
+                        text: "Renda Mensal"
+                        font_style: "Caption"
+                        bold: True
+                    MDSlider:
+                        min: 500
+                        max: 5000
+                        step: 100
+                        value: root.renda_val
+                        on_value: root.atualizar_renda(self.value)
+
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: "60dp"
+                    MDLabel:
+                        text: "Gastos com Necessidades"
+                        font_style: "Caption"
+                        bold: True
+                    MDSlider:
+                        min: 0
+                        max: 5000
+                        step: 50
+                        value: root.necessidades_val
+                        on_value: root.atualizar_necessidades(self.value)
+
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: "60dp"
+                    MDLabel:
+                        text: "Gastos com Desejos"
+                        font_style: "Caption"
+                        bold: True
+                    MDSlider:
+                        min: 0
+                        max: 5000
+                        step: 50
+                        value: root.desejos_val
+                        on_value: root.atualizar_desejos(self.value)
+
+                # ==========================================
+                # BLOCO 3: MISSÃO DE MODELAGEM DINÂMICA
+                # ==========================================
+                MDCard:
+                    orientation: 'vertical'
+                    padding: "16dp"
+                    spacing: "16dp"
+                    size_hint_y: None
+                    height: self.minimum_height
+                    radius: [10]
+                    md_bg_color: 1, 0.95, 0.8, 1 
+
+                    MDLabel:
+                        text: root.titulo_missao
+                        font_style: "Subtitle2"
+                        bold: True
+                        theme_text_color: "Error"
+
+                    MDLabel:
+                        text: root.texto_missao
+                        markup: True
+                        font_style: "Caption"
+                        theme_text_color: "Primary"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        text_size: self.width, None
+
+                    MDBoxLayout:
+                        id: action_container
+                        orientation: 'vertical'
+                        spacing: "8dp"
+                        size_hint_y: None
+                        height: self.minimum_height

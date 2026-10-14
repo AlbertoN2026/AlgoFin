@@ -1,0 +1,114 @@
+<Modulo3Screen>:
+    MDBoxLayout:
+        orientation: 'vertical'
+        md_bg_color: 0.95, 0.95, 0.97, 1
+        
+        MDTopAppBar:
+            title: "Módulo III"
+            elevation: 2
+            left_action_items: [["arrow-left", lambda x: root.voltar()]]
+
+        ScrollView:
+            MDBoxLayout:
+                orientation: 'vertical'
+                padding: "20dp"
+                spacing: "12dp"
+                adaptive_height: True
+
+                MDLabel:
+                    text: "Modelagem Computacional Avançada"
+                    font_style: "H6"
+                    bold: True
+                    adaptive_height: True
+                
+                MDLabel:
+                    text: "Supere os desafios práticos para desbloquear os próximos laboratórios."
+                    theme_text_color: "Secondary"
+                    font_style: "Caption"
+                    adaptive_height: True
+                
+                MDSeparator:
+                    height: "10dp"
+                    color: 0, 0, 0, 0
+
+                # --- FASE 1 ---
+                TopicoCard:
+                    icon: "check-circle" if app.nivel_modulo3 > 1 else "chart-timeline-variant"
+                    titulo: "1. A Força do Expoente"
+                    on_release: root.abrir_fase('juroscompostos3')
+
+                # --- FASE 2 ---
+                TopicoCard:
+                    disabled: app.nivel_modulo3 < 2
+                    icon: "lock" if app.nivel_modulo3 < 2 else ("check-circle" if app.nivel_modulo3 > 2 else "table-large")
+                    titulo: "2. Amortização (SAC e Price)" if app.nivel_modulo3 >= 2 else "??? (Conclua a Fase 1)"
+                    on_release: root.abrir_fase('amortizacao')
+
+                # --- FASE 3 ---
+                TopicoCard:
+                    disabled: app.nivel_modulo3 < 3
+                    icon: "lock" if app.nivel_modulo3 < 3 else ("check-circle" if app.nivel_modulo3 > 3 else "scale-balance")
+                    titulo: "3. Equivalência de Capitais" if app.nivel_modulo3 >= 3 else "??? (Conclua a Fase 2)"
+                    on_release: root.abrir_fase('equivalencia')
+
+                # --- FASE 4 ---
+                TopicoCard:
+                    disabled: app.nivel_modulo3 < 4
+                    icon: "lock" if app.nivel_modulo3 < 4 else ("check-circle" if app.nivel_modulo3 > 4 else "arrow-decision-outline")
+                    titulo: "4. Custo de Oportunidade" if app.nivel_modulo3 >= 4 else "??? (Conclua a Fase 3)"
+                    on_release: root.abrir_fase('custooportunidade')
+
+                # --- FASE 5 ---
+                TopicoCard:
+                    disabled: app.nivel_modulo3 < 5
+                    icon: "lock" if app.nivel_modulo3 < 5 else ("check-circle" if app.nivel_modulo3 > 5 else "chart-bar")
+                    titulo: "5. Análise de Investimentos" if app.nivel_modulo3 >= 5 else "??? (Conclua a Fase 4)"
+                    on_release: root.abrir_fase('analiseinvest')
+
+                # --- FASE 6 ---
+                TopicoCard:
+                    disabled: app.nivel_modulo3 < 6
+                    icon: "lock" if app.nivel_modulo3 < 6 else ("check-circle" if app.nivel_modulo3 > 6 else "sync")
+                    titulo: "6. Algoritmos Iterativos" if app.nivel_modulo3 >= 6 else "??? (Conclua a Fase 5)"
+                    on_release: root.abrir_fase('algoritmositerativos')
+
+                # --- FASE 7 ---
+                TopicoCard:
+                    disabled: app.nivel_modulo3 < 7
+                    icon: "lock" if app.nivel_modulo3 < 7 else ("check-circle" if app.nivel_modulo3 > 7 else "source-branch")
+                    titulo: "7. Estruturas Condicionais" if app.nivel_modulo3 >= 7 else "??? (Conclua a Fase 6)"
+                    on_release: root.abrir_fase('condicionais3')
+
+                # --- FASE 8 ---
+                TopicoCard:
+                    disabled: app.nivel_modulo3 < 8
+                    icon: "lock" if app.nivel_modulo3 < 8 else ("check-circle" if app.nivel_modulo3 > 8 else "laptop-account")
+                    titulo: "8. Simulações Financeiras" if app.nivel_modulo3 >= 8 else "??? (Conclua a Fase 7)"
+                    on_release: root.abrir_fase('simulacoes3')
+
+                # --- FASE 9 ---
+                TopicoCard:
+                    disabled: app.nivel_modulo3 < 9
+                    icon: "lock" if app.nivel_modulo3 < 9 else ("check-circle" if app.nivel_modulo3 > 9 else "medal-outline")
+                    titulo: "9. Problemas Investigativos" if app.nivel_modulo3 >= 9 else "??? (Conclua a Fase 8)"
+                    on_release: root.abrir_fase('problemas3')
+
+                # --- FASE 10 ---
+                TopicoCard:
+                    disabled: app.nivel_modulo3 < 10
+                    icon: "lock" if app.nivel_modulo3 < 10 else ("check-circle" if app.nivel_modulo3 > 10 else "brain")
+                    titulo: "10. Projeto de Otimização" if app.nivel_modulo3 >= 10 else "??? (Conclua a Fase 9)"
+                    on_release: root.abrir_fase('otimizacao3')
+
+                MDSeparator:
+                    height: "20dp"
+                    color: 0, 0, 0, 0
+                    
+                MDRaisedButton:
+                    text: "ZERAR PROGRESSO (TESTE)"
+                    md_bg_color: 0.8, 0.1, 0.1, 1
+                    pos_hint: {"center_x": .5}
+                    size_hint_x: 0.9
+                    on_release:
+                        app.nivel_modulo3 = 1
+                        app.save_data()

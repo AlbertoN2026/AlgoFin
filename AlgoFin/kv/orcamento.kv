@@ -1,0 +1,177 @@
+<OrcamentoScreen>:
+    MDBoxLayout:
+        orientation: 'vertical'
+        md_bg_color: 0.95, 0.95, 0.97, 1
+        
+        MDTopAppBar:
+            title: "2. Orçamento Familiar"
+            elevation: 2
+            left_action_items: [["arrow-left", lambda x: root.voltar()]]
+
+        ScrollView:
+            MDBoxLayout:
+                orientation: 'vertical'
+                padding: "16dp"
+                spacing: "24dp"
+                size_hint_y: None
+                height: self.minimum_height
+
+                # ==========================================
+                # O ROBÔ DINÂMICO
+                # ==========================================
+                MDBoxLayout:
+                    id: balao_robo
+                    opacity: 0
+                    orientation: 'horizontal'
+                    size_hint_y: None
+                    height: self.minimum_height
+                    spacing: "12dp"
+                    
+                    MDIcon:
+                        icon: "robot-outline"
+                        font_size: "54sp"
+                        theme_text_color: "Custom"
+                        text_color: app.theme_cls.primary_color
+                        pos_hint: {"top": 1}
+                        
+                    MDCard:
+                        orientation: 'vertical'
+                        md_bg_color: 0.85, 0.92, 0.98, 1
+                        radius: [0, 20, 20, 20]
+                        padding: "16dp"
+                        spacing: "8dp"
+                        size_hint_y: None
+                        height: self.minimum_height
+                        elevation: 1
+                        
+                        MDLabel:
+                            text: root.titulo_robo
+                            font_style: "Subtitle2"
+                            bold: True
+                            theme_text_color: "Primary"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+                            
+                        MDLabel:
+                            text: root.fala_robo
+                            font_style: "Caption"
+                            theme_text_color: "Secondary"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+
+                # ==========================================
+                # CABEÇALHO DO DESAFIO COM ÍCONE
+                # ==========================================
+                MDBoxLayout:
+                    orientation: 'horizontal'
+                    size_hint_y: None
+                    height: "30dp"
+                    spacing: "8dp"
+                    
+                    MDIcon:
+                        icon: root.icone_fase
+                        theme_text_color: "Error" if root.nivel_desafio in [1, 2] else "Primary"
+                        font_size: "24sp"
+                        
+                    MDLabel:
+                        text: root.titulo_fase
+                        font_style: "H6"
+                        bold: True
+                        size_hint_y: None
+                        height: self.texture_size[1]
+
+                # Renda do Mês
+                MDCard:
+                    size_hint_y: None
+                    height: "70dp"
+                    padding: "12dp"
+                    radius: [15]
+                    md_bg_color: 0.1, 0.4, 0.8, 0.1
+                    elevation: 0
+                    MDBoxLayout:
+                        orientation: 'vertical'
+                        MDLabel:
+                            text: "Renda Total da Família neste cenário:"
+                            font_style: "Caption"
+                        MDLabel:
+                            text: f"R$ {root.renda_atual:.2f}"
+                            font_style: "H5"
+                            bold: True
+                            theme_text_color: "Primary"
+
+                # Painel de Status do Saldo (Dinâmico)
+                MDCard:
+                    size_hint_y: None
+                    height: "50dp"
+                    radius: [10]
+                    md_bg_color: (0.8, 0.2, 0.2, 0.2) if root.saldo_atual < 0 else (0.2, 0.8, 0.2, 0.2)
+                    elevation: 0
+                    MDLabel:
+                        text: f"Saldo Final: R$ {root.saldo_atual:.2f}"
+                        halign: "center"
+                        font_style: "Subtitle1"
+                        bold: True
+                        theme_text_color: "Custom"
+                        text_color: (0.8, 0.1, 0.1, 1) if root.saldo_atual < 0 else (0.1, 0.5, 0.1, 1)
+
+                # Sliders de Gastos Familiares
+                MDCard:
+                    orientation: 'vertical'
+                    padding: "12dp"
+                    size_hint_y: None
+                    height: "120dp"
+                    radius: [12]
+                    elevation: 1
+                    MDLabel:
+                        text: f"Moradia / Contas Fixas: R$ {root.val_moradia:.2f}\\n[Mínimo exigido: R$ {root.min_moradia:.2f}]"
+                        font_style: "Caption"
+                        bold: True
+                    MDSlider:
+                        min: 0
+                        max: 2000
+                        step: 50
+                        value: root.val_moradia
+                        on_value: root.val_moradia = self.value; root.calcular_saldo()
+
+                MDCard:
+                    orientation: 'vertical'
+                    padding: "12dp"
+                    size_hint_y: None
+                    height: "120dp"
+                    radius: [12]
+                    elevation: 1
+                    MDLabel:
+                        text: f"Supermercado: R$ {root.val_comida:.2f}\\n[Mínimo exigido: R$ {root.min_comida:.2f}]"
+                        font_style: "Caption"
+                        bold: True
+                    MDSlider:
+                        min: 0
+                        max: 1500
+                        step: 50
+                        value: root.val_comida
+                        on_value: root.val_comida = self.value; root.calcular_saldo()
+
+                MDCard:
+                    orientation: 'vertical'
+                    padding: "12dp"
+                    size_hint_y: None
+                    height: "110dp"
+                    radius: [12]
+                    elevation: 1
+                    MDLabel:
+                        text: f"Lazer e Compras: R$ {root.val_lazer:.2f}"
+                        font_style: "Caption"
+                        bold: True
+                    MDSlider:
+                        min: 0
+                        max: 1500
+                        step: 50
+                        value: root.val_lazer
+                        on_value: root.val_lazer = self.value; root.calcular_saldo()
+
+                MDRaisedButton:
+                    text: "ENVIAR ALGORITMO MENSAL"
+                    pos_hint: {"center_x": .5}
+                    size_hint_x: 0.9
+                    md_bg_color: app.theme_cls.primary_color
+                    on_release: root.verificar_orcamento()

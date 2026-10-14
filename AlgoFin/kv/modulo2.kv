@@ -1,0 +1,110 @@
+<Modulo2Screen>:
+    MDBoxLayout:
+        orientation: 'vertical'
+        md_bg_color: 0.95, 0.95, 0.97, 1
+        
+        MDTopAppBar:
+            title: "Módulo II"
+            elevation: 2
+            left_action_items: [["arrow-left", lambda x: root.voltar()]]
+
+        ScrollView:
+            MDBoxLayout:
+                orientation: 'vertical'
+                padding: "20dp"
+                spacing: "12dp"
+                adaptive_height: True
+
+                MDLabel:
+                    text: "Modelagem e Tomada de Decisão"
+                    font_style: "H6"
+                    bold: True
+                    adaptive_height: True
+                
+                MDLabel:
+                    text: "Supere os desafios práticos para desbloquear as próximas simulações."
+                    theme_text_color: "Secondary"
+                    font_style: "Caption"
+                    adaptive_height: True
+                
+                MDSeparator:
+                    height: "10dp"
+                    color: 0, 0, 0, 0
+
+                # --- FASE 1: JUROS SIMPLES ---
+                TopicoCard:
+                    icon: "check-circle" if app.nivel_modulo2 > 1 else "chart-line"
+                    titulo: "1. Juros Simples (Simulador)"
+                    on_release: root.abrir_jurossimples()
+
+                # --- FASE 2: DESCONTOS ---
+                TopicoCard:
+                    disabled: app.nivel_modulo2 < 2
+                    icon: "lock" if app.nivel_modulo2 < 2 else ("check-circle" if app.nivel_modulo2 > 2 else "tag-outline")
+                    titulo: "2. Descontos" if app.nivel_modulo2 >= 2 else "??? (Conclua a Fase 1)"
+                    on_release: root.abrir_descontos()
+
+                # --- FASE 3: INFLAÇÃO ---
+                TopicoCard:
+                    disabled: app.nivel_modulo2 < 3
+                    icon: "lock" if app.nivel_modulo2 < 3 else ("check-circle" if app.nivel_modulo2 > 3 else "trending-up")
+                    titulo: "3. Inflação" if app.nivel_modulo2 >= 3 else "??? (Conclua a Fase 2)"
+                    on_release: root.abrir_inflacao()
+
+                # --- FASE 4: PLANEJAMENTO FINANCEIRO ---
+                TopicoCard:
+                    disabled: app.nivel_modulo2 < 4
+                    icon: "lock" if app.nivel_modulo2 < 4 else ("check-circle" if app.nivel_modulo2 > 4 else "clipboard-text-outline")
+                    titulo: "4. Planejamento Financeiro" if app.nivel_modulo2 >= 4 else "??? (Conclua a Fase 3)"
+                    on_release: root.abrir_planejamento()
+
+                # --- FASE 5: SIMULAÇÃO DE INVESTIMENTOS ---
+                TopicoCard:
+                    disabled: app.nivel_modulo2 < 5
+                    icon: "lock" if app.nivel_modulo2 < 5 else ("check-circle" if app.nivel_modulo2 > 5 else "finance")
+                    titulo: "5. Simulação de Investimentos" if app.nivel_modulo2 >= 5 else "??? (Conclua a Fase 4)"
+                    on_release: root.abrir_simulacao()
+
+                # --- FASE 6: COMPARAÇÃO DE CENÁRIOS ---
+                TopicoCard:
+                    disabled: app.nivel_modulo2 < 6
+                    icon: "lock" if app.nivel_modulo2 < 6 else ("check-circle" if app.nivel_modulo2 > 6 else "scale-balance")
+                    titulo: "6. Comparação de Cenários" if app.nivel_modulo2 >= 6 else "??? (Conclua a Fase 5)"
+                    on_release: root.abrir_comparacao()
+
+                # --- FASE 7: ALGORITMOS PARA PROBLEMAS ---
+                TopicoCard:
+                    disabled: app.nivel_modulo2 < 7
+                    icon: "lock" if app.nivel_modulo2 < 7 else ("check-circle" if app.nivel_modulo2 > 7 else "sitemap")
+                    titulo: "7. Algoritmos para Problemas" if app.nivel_modulo2 >= 7 else "??? (Conclua a Fase 6)"
+                    on_release: root.abrir_algoritmos_mod2()
+
+                # --- FASE 8: MODELAGEM COMPUTACIONAL ---
+                TopicoCard:
+                    disabled: app.nivel_modulo2 < 8
+                    icon: "lock" if app.nivel_modulo2 < 8 else ("check-circle" if app.nivel_modulo2 > 8 else "laptop")
+                    titulo: "8. Modelagem Computacional" if app.nivel_modulo2 >= 8 else "??? (Conclua a Fase 7)"
+                    on_release: root.abrir_modelagem()
+
+                # --- FASE 9: PROBLEMAS OLITEF E OBMF ---
+                TopicoCard:
+                    disabled: app.nivel_modulo2 < 9
+                    icon: "lock" if app.nivel_modulo2 < 9 else ("check-circle" if app.nivel_modulo2 > 9 else "trophy-outline")
+                    titulo: "9. Desafios OLITEF e OBMF" if app.nivel_modulo2 >= 9 else "??? (Conclua a Fase 8)"
+                    on_release: root.abrir_olitef()
+
+                # ==========================================
+                # BOTÃO DE TESTE PARA DESENVOLVEDOR (ZERAR)
+                # ==========================================
+                MDSeparator:
+                    height: "20dp"
+                    color: 0, 0, 0, 0
+                    
+                MDRaisedButton:
+                    text: "ZERAR PROGRESSO (TESTE)"
+                    md_bg_color: 0.8, 0.1, 0.1, 1
+                    pos_hint: {"center_x": .5}
+                    size_hint_x: 0.9
+                    on_release:
+                        app.nivel_modulo2 = 1
+                        app.save_data()

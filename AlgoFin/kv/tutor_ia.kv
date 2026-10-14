@@ -1,0 +1,24 @@
+<TutorScreen>:
+    MDBoxLayout:
+        orientation: 'vertical'
+        MDTopAppBar:
+            title: "Tutor IA"
+            left_action_items: [["arrow-left", lambda x: setattr(root.manager, 'current', 'inicial')]]   
+        ScrollView:
+            id: chat_scroll
+            MDBoxLayout:
+                id: chat_list
+                orientation: 'vertical'
+                spacing: "12dp"
+                padding: "12dp"
+                adaptive_height: True
+        MDBoxLayout:
+            size_hint_y: None
+            height: "70dp"
+            padding: "8dp"
+            MDTextField:
+                id: input_msg
+                hint_text: "Sua dúvida..."
+            MDIconButton:
+                icon: "send"
+                on_release: root.enviar()

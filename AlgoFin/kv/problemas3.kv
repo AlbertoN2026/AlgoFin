@@ -1,0 +1,233 @@
+<Problemas3Screen>:
+    MDBoxLayout:
+        orientation: 'vertical'
+        md_bg_color: 0.95, 0.95, 0.97, 1
+
+        MDTopAppBar:
+            title: "9. Problemas Investigativos"
+            elevation: 2
+            left_action_items: [["arrow-left", lambda x: root.voltar()]]
+
+        ScrollView:
+            MDBoxLayout:
+                orientation: 'vertical'
+                padding: "16dp"
+                spacing: "24dp"
+                adaptive_height: True
+
+                # ==========================================
+                # BLOCO 1: FUNDAMENTOS TEÓRICOS
+                # ==========================================
+                MDCard:
+                    orientation: 'vertical'
+                    padding: "20dp"
+                    spacing: "12dp"
+                    size_hint_y: None
+                    height: self.minimum_height
+                    radius: [15]
+                    md_bg_color: 1, 1, 1, 1
+                    elevation: 2
+
+                    MDLabel:
+                        text: "Ponto de Equilíbrio (Break-Even)"
+                        font_style: "H6"
+                        bold: True
+                        theme_text_color: "Primary"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+
+                    MDLabel:
+                        text: "Em problemas de olimpíadas financeiras, toda empresa tem Custos Fixos (aluguel, salários) e Custos Variáveis (matéria-prima). O Ponto de Equilíbrio é o exato momento em que a Receita Total empata com o Custo Total. A partir da próxima unidade vendida, a empresa finalmente tem lucro."
+                        font_style: "Body2"
+                        theme_text_color: "Secondary"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+
+                # ==========================================
+                # O TUTOR IA
+                # ==========================================
+                MDBoxLayout:
+                    id: balao_robo
+                    opacity: 0
+                    orientation: 'horizontal'
+                    size_hint_y: None
+                    height: self.minimum_height
+                    spacing: "12dp"
+
+                    MDIcon:
+                        icon: "store-search-outline"
+                        font_size: "54sp"
+                        theme_text_color: "Custom"
+                        text_color: app.theme_cls.primary_color
+                        pos_hint: {"top": 1}
+
+                    MDCard:
+                        id: card_fala
+                        orientation: 'vertical'
+                        md_bg_color: 0.85, 0.92, 0.98, 1
+                        radius: [0, 20, 20, 20]
+                        padding: "16dp"
+                        spacing: "8dp"
+                        size_hint_y: None
+                        height: self.minimum_height
+                        elevation: 1
+
+                        MDLabel:
+                            text: "Desafio OBMF!"
+                            font_style: "Subtitle2"
+                            bold: True
+                            theme_text_color: "Primary"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+
+                        MDLabel:
+                            text: "Você assumiu as finanças da Livraria Saber. Deslize a quantidade de livros vendidos e olhe os indicadores. Quando o Lucro deixar de ser vermelho e ficar verde, você encontrou o Ponto de Equilíbrio!"
+                            font_style: "Caption"
+                            theme_text_color: "Secondary"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+
+                # ==========================================
+                # DASHBOARD FINANCEIRO DA EMPRESA
+                # ==========================================
+                MDCard:
+                    orientation: 'vertical'
+                    padding: "20dp"
+                    spacing: "12dp"
+                    size_hint_y: None
+                    height: self.minimum_height
+                    radius: [15]
+                    md_bg_color: 0.15, 0.15, 0.2, 1 
+
+                    MDLabel:
+                        text: "LIVRARIA SABER - DRE MENSAL"
+                        font_style: "Overline"
+                        bold: True
+                        theme_text_color: "Custom"
+                        text_color: 0.4, 0.8, 1, 1 
+                        halign: "center"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        
+                    MDSeparator:
+                        color: 0.4, 0.4, 0.4, 1
+
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+                        size_hint_y: None
+                        height: self.minimum_height
+                        MDLabel:
+                            text: "Receita (Entradas):"
+                            font_style: "Caption"
+                            theme_text_color: "Custom"
+                            text_color: 1, 1, 1, 1
+                            size_hint_y: None
+                            height: self.texture_size[1]
+                        MDLabel:
+                            text: f"R$ {root.receita_calc:.2f}"
+                            font_style: "Body2"
+                            theme_text_color: "Custom"
+                            text_color: 0.4, 0.8, 0.4, 1 # Verde
+                            halign: "right"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+                            
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+                        size_hint_y: None
+                        height: self.minimum_height
+                        MDLabel:
+                            text: "Custo Total (Fixo + Variável):"
+                            font_style: "Caption"
+                            theme_text_color: "Custom"
+                            text_color: 1, 1, 1, 1
+                            size_hint_y: None
+                            height: self.texture_size[1]
+                        MDLabel:
+                            text: f"- R$ {root.custo_total_calc:.2f}"
+                            font_style: "Body2"
+                            theme_text_color: "Custom"
+                            text_color: 0.9, 0.3, 0.3, 1 # Vermelho
+                            halign: "right"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+
+                    MDSeparator:
+                        color: 0.4, 0.4, 0.4, 1
+
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+                        size_hint_y: None
+                        height: self.minimum_height
+                        MDLabel:
+                            text: "LUCRO LÍQUIDO:"
+                            font_style: "Subtitle2"
+                            bold: True
+                            theme_text_color: "Custom"
+                            text_color: 1, 1, 1, 1
+                            size_hint_y: None
+                            height: self.texture_size[1]
+                        MDLabel:
+                            text: f"R$ {root.lucro_calc:.2f}"
+                            font_style: "H6"
+                            bold: True
+                            theme_text_color: "Custom"
+                            text_color: root.cor_lucro 
+                            halign: "right"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+
+                # ==========================================
+                # O SLIDER (INPUT DO ALUNO)
+                # ==========================================
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: "70dp"
+                    MDLabel:
+                        text: f"Livros Vendidos no Mês: {root.unidades_val} unidades"
+                        font_style: "Subtitle2"
+                        theme_text_color: "Primary"
+                        bold: True
+                    MDSlider:
+                        min: 0
+                        max: 500
+                        step: 10
+                        value: root.unidades_val
+                        on_value: root.atualizar_unidades(self.value)
+
+                # ==========================================
+                # ÁREA DA MISSÃO
+                # ==========================================
+                MDCard:
+                    orientation: 'vertical'
+                    padding: "16dp"
+                    spacing: "16dp"
+                    size_hint_y: None
+                    height: self.minimum_height
+                    radius: [10]
+                    md_bg_color: 1, 0.95, 0.8, 1 
+
+                    MDLabel:
+                        text: root.titulo_missao
+                        font_style: "Subtitle2"
+                        bold: True
+                        theme_text_color: "Error"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+
+                    MDLabel:
+                        text: root.texto_missao
+                        markup: True
+                        font_style: "Caption"
+                        theme_text_color: "Primary"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        text_size: self.width, None
+
+                    MDBoxLayout:
+                        id: action_container
+                        orientation: 'vertical'
+                        spacing: "8dp"
+                        size_hint_y: None
+                        height: self.minimum_height

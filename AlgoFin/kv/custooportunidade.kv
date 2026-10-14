@@ -1,0 +1,272 @@
+<CustoOportunidadeScreen>:
+    MDBoxLayout:
+        orientation: 'vertical'
+        md_bg_color: 0.95, 0.95, 0.97, 1
+
+        MDTopAppBar:
+            title: "4. Custo de Oportunidade"
+            elevation: 2
+            left_action_items: [["arrow-left", lambda x: root.voltar()]]
+
+        ScrollView:
+            MDBoxLayout:
+                orientation: 'vertical'
+                padding: "16dp"
+                spacing: "24dp"
+                adaptive_height: True
+
+                # ==========================================
+                # BLOCO 1: FUNDAMENTOS TEÓRICOS AVANÇADOS
+                # ==========================================
+                MDCard:
+                    orientation: 'vertical'
+                    padding: "20dp"
+                    spacing: "12dp"
+                    size_hint_y: None
+                    height: self.minimum_height
+                    radius: [15]
+                    md_bg_color: 1, 1, 1, 1
+                    elevation: 2
+
+                    MDLabel:
+                        text: "A Teoria da Escassez"
+                        font_style: "H6"
+                        bold: True
+                        theme_text_color: "Primary"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+
+                    MDLabel:
+                        text: "Na economia, todos os recursos (dinheiro e tempo) são limitados. Portanto, toda ESCOLHA gera uma RENÚNCIA. O Custo de Oportunidade é o valor da 'melhor alternativa que você deixou para trás'."
+                        font_style: "Body2"
+                        theme_text_color: "Secondary"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+
+                    MDSeparator:
+                        color: 0.9, 0.9, 0.9, 1
+
+                    MDLabel:
+                        text: "Lucro Contábil vs. Lucro Econômico"
+                        font_style: "Subtitle2"
+                        bold: True
+                        theme_text_color: "Primary"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+
+                    MDLabel:
+                        text: "• [b]Lucro Contábil:[/b] É apenas a Receita menos os Custos diretos.\n• [b]Lucro Econômico:[/b] É o Lucro Contábil MENOS o Custo de Oportunidade. Se o seu Lucro Econômico for negativo, significa que você teria ganhado mais dinheiro se tivesse escolhido outra opção, mesmo que no papel pareça que você 'lucrou'."
+                        markup: True
+                        font_style: "Caption"
+                        theme_text_color: "Secondary"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+
+                # ==========================================
+                # BLOCO 2: O DILEMA (CENÁRIOS CLICÁVEIS)
+                # ==========================================
+                MDLabel:
+                    text: "Você tem R$ 10.000,00 e 1 ano pela frente. Qual a sua escolha?"
+                    font_style: "Subtitle2"
+                    bold: True
+                    halign: "center"
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                # Opção 1
+                MDCard:
+                    orientation: 'vertical'
+                    padding: "16dp"
+                    size_hint_y: None
+                    height: self.minimum_height
+                    radius: [10]
+                    md_bg_color: 0.9, 0.9, 0.95, 1
+                    ripple_behavior: True
+                    on_release: root.selecionar_opcao(1)
+
+                    MDLabel:
+                        text: "OPÇÃO A: Deixar na Conta Corrente"
+                        font_style: "Subtitle2"
+                        bold: True
+                        theme_text_color: "Primary"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                    MDLabel:
+                        text: "Dinheiro parado. Seguro, mas não rende nada."
+                        font_style: "Caption"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+
+                # Opção 2
+                MDCard:
+                    orientation: 'vertical'
+                    padding: "16dp"
+                    size_hint_y: None
+                    height: self.minimum_height
+                    radius: [10]
+                    md_bg_color: 0.9, 0.95, 0.9, 1
+                    ripple_behavior: True
+                    on_release: root.selecionar_opcao(2)
+
+                    MDLabel:
+                        text: "OPÇÃO B: Tesouro Selic"
+                        font_style: "Subtitle2"
+                        bold: True
+                        theme_text_color: "Primary"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                    MDLabel:
+                        text: "Investimento seguro rendendo 10,5% ao ano líquidos."
+                        font_style: "Caption"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+
+                # Opção 3
+                MDCard:
+                    orientation: 'vertical'
+                    padding: "16dp"
+                    size_hint_y: None
+                    height: self.minimum_height
+                    radius: [10]
+                    md_bg_color: 0.95, 0.9, 0.9, 1
+                    ripple_behavior: True
+                    on_release: root.selecionar_opcao(3)
+
+                    MDLabel:
+                        text: "OPÇÃO C: Equipamentos para Freelance"
+                        font_style: "Subtitle2"
+                        bold: True
+                        theme_text_color: "Primary"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                    MDLabel:
+                        text: "Comprar equipamentos e trabalhar finais de semana (Lucro estimado: R$ 5.000 no ano)."
+                        font_style: "Caption"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+
+                # ==========================================
+                # DASHBOARD DO ALGORITMO
+                # ==========================================
+                MDCard:
+                    orientation: 'vertical'
+                    padding: "20dp"
+                    spacing: "12dp"
+                    size_hint_y: None
+                    height: self.minimum_height
+                    radius: [15]
+                    md_bg_color: 0.15, 0.15, 0.2, 1 
+
+                    MDLabel:
+                        text: f"ESCOLHA: {root.nome_escolha}"
+                        font_style: "Subtitle2"
+                        bold: True
+                        theme_text_color: "Custom"
+                        text_color: 0.4, 0.8, 1, 1 # Azul claro
+                        halign: "center"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        
+                    MDSeparator:
+                        color: 0.4, 0.4, 0.4, 1
+
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+                        size_hint_y: None
+                        height: self.minimum_height
+                        MDLabel:
+                            text: "Lucro Contábil (Ganho):"
+                            font_style: "Caption"
+                            theme_text_color: "Custom"
+                            text_color: 1, 1, 1, 1
+                            size_hint_y: None
+                            height: self.texture_size[1]
+                        MDLabel:
+                            text: f"+ R$ {root.ganho_escolha:.2f}"
+                            font_style: "Body2"
+                            theme_text_color: "Custom"
+                            text_color: 0.8, 0.8, 0.8, 1 
+                            halign: "right"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+                            
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+                        size_hint_y: None
+                        height: self.minimum_height
+                        MDLabel:
+                            text: "Custo de Oportunidade:"
+                            font_style: "Caption"
+                            theme_text_color: "Custom"
+                            text_color: 1, 1, 1, 1
+                            size_hint_y: None
+                            height: self.texture_size[1]
+                        MDLabel:
+                            text: f"- R$ {root.custo_oportunidade:.2f}"
+                            font_style: "Body2"
+                            theme_text_color: "Custom"
+                            text_color: 0.9, 0.3, 0.3, 1 # Vermelho
+                            halign: "right"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+
+                    MDSeparator:
+                        color: 0.4, 0.4, 0.4, 1
+
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+                        size_hint_y: None
+                        height: self.minimum_height
+                        MDLabel:
+                            text: "LUCRO ECONÔMICO:"
+                            font_style: "Subtitle2"
+                            bold: True
+                            theme_text_color: "Custom"
+                            text_color: 1, 1, 1, 1
+                            size_hint_y: None
+                            height: self.texture_size[1]
+                        MDLabel:
+                            text: f"R$ {root.lucro_economico:.2f}"
+                            font_style: "H6"
+                            bold: True
+                            theme_text_color: "Custom"
+                            text_color: root.cor_lucro
+                            halign: "right"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+
+                # ==========================================
+                # ÁREA DA MISSÃO
+                # ==========================================
+                MDCard:
+                    orientation: 'vertical'
+                    padding: "16dp"
+                    spacing: "16dp"
+                    size_hint_y: None
+                    height: self.minimum_height
+                    radius: [10]
+                    md_bg_color: 1, 0.95, 0.8, 1 
+
+                    MDLabel:
+                        text: root.titulo_missao
+                        font_style: "Subtitle2"
+                        bold: True
+                        theme_text_color: "Error"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+
+                    MDLabel:
+                        text: root.texto_missao
+                        markup: True
+                        font_style: "Caption"
+                        theme_text_color: "Primary"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        text_size: self.width, None
+
+                    MDBoxLayout:
+                        id: action_container
+                        orientation: 'vertical'
+                        spacing: "8dp"
+                        size_hint_y: None
+                        height: self.minimum_height

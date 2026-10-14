@@ -1,0 +1,261 @@
+<AlgoritmosMod2Screen>:
+    MDBoxLayout:
+        orientation: 'vertical'
+        md_bg_color: 0.95, 0.95, 0.97, 1
+
+        MDTopAppBar:
+            title: "7. Algoritmos para Problemas"
+            elevation: 2
+            left_action_items: [["arrow-left", lambda x: root.voltar()]]
+
+        ScrollView:
+            MDBoxLayout:
+                orientation: 'vertical'
+                padding: "16dp"
+                spacing: "24dp"
+                adaptive_height: True
+
+                # ==========================================
+                # BLOCO 1: FUNDAMENTOS TEÓRICOS
+                # ==========================================
+                MDCard:
+                    orientation: 'vertical'
+                    padding: "20dp"
+                    spacing: "12dp"
+                    size_hint_y: None
+                    height: self.minimum_height
+                    radius: [15]
+                    md_bg_color: 1, 1, 1, 1
+                    elevation: 2
+
+                    MDLabel:
+                        text: "Lógica Condicional (IF / ELSE)"
+                        font_style: "H6"
+                        bold: True
+                        theme_text_color: "Primary"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+
+                    MDLabel:
+                        text: "Na programação, um algoritmo usa condições para decidir o que fazer. Nas finanças é igual! A decisão de 'Pagar à Vista' ou 'Parcelar' depende de um algoritmo matemático que compara o Desconto oferecido com o Rendimento do seu investimento."
+                        font_style: "Body2"
+                        theme_text_color: "Secondary"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+
+                # ==========================================
+                # O TUTOR IA (ANIMAÇÃO)
+                # ==========================================
+                MDBoxLayout:
+                    id: balao_robo
+                    opacity: 0
+                    orientation: 'horizontal'
+                    size_hint_y: None
+                    height: self.minimum_height
+                    spacing: "12dp"
+
+                    MDIcon:
+                        icon: "robot-excited-outline"
+                        font_size: "54sp"
+                        theme_text_color: "Custom"
+                        text_color: app.theme_cls.primary_color
+                        pos_hint: {"top": 1}
+
+                    MDCard:
+                        id: card_fala
+                        orientation: 'vertical'
+                        md_bg_color: 0.85, 0.92, 0.98, 1
+                        radius: [0, 20, 20, 20]
+                        padding: "16dp"
+                        spacing: "8dp"
+                        size_hint_y: None
+                        height: self.minimum_height
+                        elevation: 1
+
+                        MDLabel:
+                            text: "Árvore de Decisão Ativada!"
+                            font_style: "Subtitle2"
+                            bold: True
+                            theme_text_color: "Primary"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+                            
+                        MDLabel:
+                            text: "Vamos testar o custo de oportunidade! Se você tem o dinheiro em mãos, vale mais a pena pedir desconto ou deixar o dinheiro rendendo no banco e pagar parcelado?"
+                            font_style: "Caption"
+                            theme_text_color: "Secondary"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+
+                # ==========================================
+                # BLOCO 2: DASHBOARD DE PROCESSAMENTO
+                # ==========================================
+                MDCard:
+                    orientation: 'vertical'
+                    padding: "20dp"
+                    spacing: "16dp"
+                    size_hint_y: None
+                    height: self.minimum_height
+                    radius: [15]
+                    md_bg_color: 0.15, 0.15, 0.2, 1 
+
+                    MDLabel:
+                        text: "PROCESSADOR DE CENÁRIOS"
+                        font_style: "Overline"
+                        theme_text_color: "Custom"
+                        text_color: 0.7, 0.7, 0.7, 1
+                        halign: "center"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        
+                    MDSeparator:
+                        color: 0.4, 0.4, 0.4, 1
+
+                    # Cenário IF (À Vista)
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+                        size_hint_y: None
+                        height: self.minimum_height
+                        MDLabel:
+                            text: "Sobra pagando À Vista:"
+                            font_style: "Subtitle2"
+                            theme_text_color: "Custom"
+                            text_color: 1, 1, 1, 1
+                            size_hint_y: None
+                            height: self.texture_size[1]
+                        MDLabel:
+                            text: f"R$ {root.saldo_vista_calc:.2f}"
+                            font_style: "Body1"
+                            theme_text_color: "Custom"
+                            text_color: 0.8, 0.8, 0.8, 1 
+                            halign: "right"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+
+                    # Cenário ELSE (A Prazo e Investindo)
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+                        size_hint_y: None
+                        height: self.minimum_height
+                        MDLabel:
+                            text: "Sobra Parcelando:"
+                            font_style: "Subtitle2"
+                            theme_text_color: "Custom"
+                            text_color: 1, 1, 1, 1
+                            size_hint_y: None
+                            height: self.texture_size[1]
+                        MDLabel:
+                            text: f"R$ {root.saldo_prazo_calc:.2f}"
+                            font_style: "Body1"
+                            theme_text_color: "Custom"
+                            text_color: 0.8, 0.8, 0.8, 1 
+                            halign: "right"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+
+                    MDSeparator:
+                        color: 0.4, 0.4, 0.4, 1
+
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+                        size_hint_y: None
+                        height: self.minimum_height
+                        MDLabel:
+                            text: "OUTPUT (VEREDITO):"
+                            font_style: "Subtitle2"
+                            bold: True
+                            theme_text_color: "Custom"
+                            text_color: 1, 1, 1, 1
+                            size_hint_y: None
+                            height: self.texture_size[1]
+                        MDLabel:
+                            text: root.veredito_texto
+                            font_style: "Subtitle2"
+                            bold: True
+                            theme_text_color: "Custom"
+                            text_color: root.veredito_cor
+                            halign: "right"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+
+                # ==========================================
+                # OS SLIDERS INTERATIVOS 
+                # ==========================================
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: "60dp"
+                    MDLabel:
+                        text: f"Preço do Produto: R$ {root.preco_val:.2f}"
+                        font_style: "Caption"
+                        bold: True
+                    MDSlider:
+                        min: 100
+                        max: 3000
+                        step: 100
+                        value: root.preco_val
+                        on_value: root.atualizar_preco(self.value)
+
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: "60dp"
+                    MDLabel:
+                        text: f"Desconto à Vista: {root.desconto_val}%"
+                        font_style: "Caption"
+                        bold: True
+                    MDSlider:
+                        min: 0
+                        max: 20
+                        step: 1
+                        value: root.desconto_val
+                        on_value: root.atualizar_desconto(self.value)
+
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: "60dp"
+                    MDLabel:
+                        text: f"Rendimento Mensal (Banco): {root.rendimento_val}%"
+                        font_style: "Caption"
+                        bold: True
+                    MDSlider:
+                        min: 1
+                        max: 10
+                        step: 1
+                        value: root.rendimento_val
+                        on_value: root.atualizar_rendimento(self.value)
+
+                # ==========================================
+                # BLOCO 3: MISSÃO E OLIMPÍADA
+                # ==========================================
+                MDCard:
+                    orientation: 'vertical'
+                    padding: "16dp"
+                    spacing: "16dp"
+                    size_hint_y: None
+                    height: self.minimum_height
+                    radius: [10]
+                    md_bg_color: 1, 0.95, 0.8, 1 
+
+                    MDLabel:
+                        text: root.titulo_missao
+                        font_style: "Subtitle2"
+                        bold: True
+                        theme_text_color: "Error"
+
+                    MDLabel:
+                        text: root.texto_missao
+                        markup: True
+                        font_style: "Caption"
+                        theme_text_color: "Primary"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        text_size: self.width, None
+
+                    MDBoxLayout:
+                        id: action_container
+                        orientation: 'vertical'
+                        spacing: "8dp"
+                        size_hint_y: None
+                        height: self.minimum_height

@@ -1,0 +1,226 @@
+<JurosSimplesScreen>:
+    MDBoxLayout:
+        orientation: 'vertical'
+        md_bg_color: 0.95, 0.95, 0.97, 1
+
+        MDTopAppBar:
+            title: "1. Modelagem: Juros Simples"
+            elevation: 2
+            left_action_items: [["arrow-left", lambda x: root.voltar()]]
+
+        ScrollView:
+            MDBoxLayout:
+                orientation: 'vertical'
+                padding: "16dp"
+                spacing: "24dp"
+                adaptive_height: True
+
+                # ==========================================
+                # BLOCO 1: FUNDAMENTOS TEÓRICOS
+                # ==========================================
+                MDCard:
+                    orientation: 'vertical'
+                    padding: "20dp"
+                    spacing: "12dp"
+                    size_hint_y: None
+                    height: self.minimum_height
+                    radius: [15]
+                    md_bg_color: 1, 1, 1, 1
+                    elevation: 2
+
+                    MDLabel:
+                        text: "Fundamentos Matemáticos"
+                        font_style: "H6"
+                        bold: True
+                        theme_text_color: "Primary"
+
+                    MDLabel:
+                        text: "Os Juros Simples operam como uma progressão aritmética. O rendimento é calculado estritamente sobre o Capital Inicial. A modelagem depende de três variáveis:"
+                        font_style: "Body2"
+                        theme_text_color: "Secondary"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+
+                    MDLabel:
+                        text: "• [b]Capital (P):[/b] O dinheiro inicial.\n• [b]Taxa (i):[/b] A porcentagem de rendimento.\n• [b]Tempo (n):[/b] O período de aplicação."
+                        markup: True
+                        font_style: "Body2"
+                        theme_text_color: "Primary"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+
+                # ==========================================
+                # O TUTOR IA (ANIMAÇÃO)
+                # ==========================================
+                MDBoxLayout:
+                    id: balao_robo
+                    opacity: 0
+                    orientation: 'horizontal'
+                    size_hint_y: None
+                    height: self.minimum_height
+                    spacing: "12dp"
+
+                    MDIcon:
+                        icon: "robot-excited-outline"
+                        font_size: "54sp"
+                        theme_text_color: "Custom"
+                        text_color: app.theme_cls.primary_color
+                        pos_hint: {"top": 1}
+
+                    MDCard:
+                        id: card_fala
+                        orientation: 'vertical'
+                        md_bg_color: 0.85, 0.92, 0.98, 1
+                        radius: [0, 20, 20, 20]
+                        padding: "16dp"
+                        spacing: "8dp"
+                        size_hint_y: None
+                        height: self.minimum_height
+                        elevation: 1
+
+                        MDLabel:
+                            text: "Simulador Ativado!"
+                            font_style: "Subtitle2"
+                            bold: True
+                            theme_text_color: "Primary"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+                        MDLabel:
+                            text: "Resolva as missões abaixo manipulando a máquina do tempo do dinheiro. Na última etapa, use a máquina para provar a sua resposta!"
+                            font_style: "Caption"
+                            theme_text_color: "Secondary"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+
+                # ==========================================
+                # BLOCO 2: DASHBOARD FINANCEIRO E SLIDERS
+                # ==========================================
+                MDCard:
+                    orientation: 'vertical'
+                    padding: "16dp"
+                    spacing: "8dp"
+                    size_hint_y: None
+                    height: self.minimum_height
+                    radius: [15]
+                    md_bg_color: 0.15, 0.15, 0.2, 1 
+
+                    MDLabel:
+                        text: "PAINEL DE PROJEÇÃO"
+                        font_style: "Overline"
+                        theme_text_color: "Custom"
+                        text_color: 0.7, 0.7, 0.7, 1
+                        halign: "center"
+
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+                        MDLabel:
+                            text: "JUROS (J):"
+                            font_style: "Subtitle2"
+                            theme_text_color: "Custom"
+                            text_color: 1, 1, 1, 1
+                        MDLabel:
+                            text: f"R$ {root.juros_calc:.2f}"
+                            font_style: "H6"
+                            bold: True
+                            theme_text_color: "Custom"
+                            text_color: 0.4, 0.8, 0.4, 1 
+                            halign: "right"
+
+                    MDSeparator:
+                        color: 0.4, 0.4, 0.4, 1
+
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+                        MDLabel:
+                            text: "MONTANTE (M):"
+                            font_style: "Subtitle2"
+                            theme_text_color: "Custom"
+                            text_color: 1, 1, 1, 1
+                        MDLabel:
+                            text: f"R$ {root.montante_calc:.2f}"
+                            font_style: "H6"
+                            bold: True
+                            theme_text_color: "Custom"
+                            text_color: 0.3, 0.6, 1, 1 
+                            halign: "right"
+
+                # Sliders Interativos
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: "60dp"
+                    MDLabel:
+                        text: f"Capital (P): R$ {root.capital_val:.2f}"
+                        font_style: "Caption"
+                        bold: True
+                    MDSlider:
+                        min: 100
+                        max: 2000
+                        step: 50
+                        value: root.capital_val
+                        on_value: root.atualizar_capital(self.value)
+
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: "60dp"
+                    MDLabel:
+                        text: f"Taxa de Juros (i): {root.taxa_val}% ao mês"
+                        font_style: "Caption"
+                        bold: True
+                    MDSlider:
+                        min: 1
+                        max: 10
+                        step: 1
+                        value: root.taxa_val
+                        on_value: root.atualizar_taxa(self.value)
+
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: "60dp"
+                    MDLabel:
+                        text: f"Tempo (n): {root.tempo_val} meses"
+                        font_style: "Caption"
+                        bold: True
+                    MDSlider:
+                        min: 1
+                        max: 24
+                        step: 1
+                        value: root.tempo_val
+                        on_value: root.atualizar_tempo(self.value)
+
+                # ==========================================
+                # BLOCO 3: MISSÃO DE MODELAGEM DINÂMICA
+                # ==========================================
+                MDCard:
+                    orientation: 'vertical'
+                    padding: "16dp"
+                    spacing: "16dp"
+                    size_hint_y: None
+                    height: self.minimum_height
+                    radius: [10]
+                    md_bg_color: 1, 0.95, 0.8, 1 
+
+                    MDLabel:
+                        text: root.titulo_missao
+                        font_style: "Subtitle2"
+                        bold: True
+                        theme_text_color: "Error"
+
+                    MDLabel:
+                        text: root.texto_missao
+                        markup: True
+                        font_style: "Caption"
+                        theme_text_color: "Primary"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        text_size: self.width, None
+
+                    # CONTAINER ONDE OS BOTÕES APARECERÃO
+                    MDBoxLayout:
+                        id: action_container
+                        orientation: 'vertical'
+                        spacing: "8dp"
+                        size_hint_y: None
+                        height: self.minimum_height

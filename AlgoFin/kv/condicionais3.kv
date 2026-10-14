@@ -1,0 +1,228 @@
+<Condicionais3Screen>:
+    MDBoxLayout:
+        orientation: 'vertical'
+        md_bg_color: 0.95, 0.95, 0.97, 1
+
+        MDTopAppBar:
+            title: "7. Estruturas Condicionais"
+            elevation: 2
+            left_action_items: [["arrow-left", lambda x: root.voltar()]]
+
+        ScrollView:
+            MDBoxLayout:
+                orientation: 'vertical'
+                padding: "16dp"
+                spacing: "24dp"
+                adaptive_height: True
+
+                # ==========================================
+                # BLOCO 1: FUNDAMENTOS TEÓRICOS
+                # ==========================================
+                MDCard:
+                    orientation: 'vertical'
+                    padding: "20dp"
+                    spacing: "12dp"
+                    size_hint_y: None
+                    height: self.minimum_height
+                    radius: [15]
+                    md_bg_color: 1, 1, 1, 1
+                    elevation: 2
+
+                    MDLabel:
+                        text: "A Lógica IF / ELSE"
+                        font_style: "H6"
+                        bold: True
+                        theme_text_color: "Primary"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+
+                    MDLabel:
+                        text: "Na computação, usamos IF (Se), ELIF (Senão Se) e ELSE (Senão) para tomar decisões. O Imposto de Renda é um algoritmo condicional: o sistema testa o seu salário faixa por faixa até encontrar em qual regra você se encaixa."
+                        font_style: "Body2"
+                        theme_text_color: "Secondary"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+
+                # ==========================================
+                # O TUTOR IA
+                # ==========================================
+                MDBoxLayout:
+                    id: balao_robo
+                    opacity: 0
+                    orientation: 'horizontal'
+                    size_hint_y: None
+                    height: self.minimum_height
+                    spacing: "12dp"
+
+                    MDIcon:
+                        icon: "source-branch"
+                        font_size: "54sp"
+                        theme_text_color: "Custom"
+                        text_color: app.theme_cls.primary_color
+                        pos_hint: {"top": 1}
+
+                    MDCard:
+                        id: card_fala
+                        orientation: 'vertical'
+                        md_bg_color: 0.85, 0.92, 0.98, 1
+                        radius: [0, 20, 20, 20]
+                        padding: "16dp"
+                        spacing: "8dp"
+                        size_hint_y: None
+                        height: self.minimum_height
+                        elevation: 1
+
+                        MDLabel:
+                            text: "Compilador Tributário!"
+                            font_style: "Subtitle2"
+                            bold: True
+                            theme_text_color: "Primary"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+
+                        MDLabel:
+                            text: "Ajuste o seu salário no slider e observe o painel. Veja como a Máquina de Estados muda o caminho do código (Bloco Executado) e aumenta a sua taxa de imposto!"
+                            font_style: "Caption"
+                            theme_text_color: "Secondary"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+
+                # ==========================================
+                # DASHBOARD DO CÓDIGO (IRPF)
+                # ==========================================
+                MDCard:
+                    orientation: 'vertical'
+                    padding: "20dp"
+                    spacing: "16dp"
+                    size_hint_y: None
+                    height: self.minimum_height
+                    radius: [15]
+                    md_bg_color: 0.15, 0.15, 0.2, 1 
+
+                    MDLabel:
+                        text: "MEMÓRIA DE PROCESSAMENTO"
+                        font_style: "Overline"
+                        theme_text_color: "Custom"
+                        text_color: 0.7, 0.7, 0.7, 1
+                        halign: "center"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+                        size_hint_y: None
+                        height: self.minimum_height
+                        MDLabel:
+                            text: "Bloco Executado:"
+                            font_style: "Caption"
+                            theme_text_color: "Custom"
+                            text_color: 1, 1, 1, 1
+                            size_hint_y: None
+                            height: self.texture_size[1]
+                        MDLabel:
+                            text: root.condicao_texto
+                            font_style: "Subtitle2"
+                            theme_text_color: "Custom"
+                            text_color: 0.4, 0.8, 1, 1 # Azul claro
+                            halign: "right"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+                            
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+                        size_hint_y: None
+                        height: self.minimum_height
+                        MDLabel:
+                            text: "Alíquota (Taxa):"
+                            font_style: "Caption"
+                            theme_text_color: "Custom"
+                            text_color: 1, 1, 1, 1
+                            size_hint_y: None
+                            height: self.texture_size[1]
+                        MDLabel:
+                            text: f"{root.aliquota_val}%"
+                            font_style: "Body2"
+                            theme_text_color: "Custom"
+                            text_color: 0.9, 0.7, 0.2, 1 
+                            halign: "right"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+
+                    MDSeparator:
+                        color: 0.4, 0.4, 0.4, 1
+
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+                        size_hint_y: None
+                        height: self.minimum_height
+                        MDLabel:
+                            text: "IMPOSTO A PAGAR:"
+                            font_style: "Subtitle2"
+                            bold: True
+                            theme_text_color: "Custom"
+                            text_color: 1, 1, 1, 1
+                            size_hint_y: None
+                            height: self.texture_size[1]
+                        MDLabel:
+                            text: f"R$ {root.imposto_calc:.2f}"
+                            font_style: "H6"
+                            bold: True
+                            theme_text_color: "Custom"
+                            text_color: 0.9, 0.3, 0.3, 1 # Vermelho
+                            halign: "right"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+
+                # ==========================================
+                # O SLIDER DE SALÁRIO
+                # ==========================================
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: "60dp"
+                    MDLabel:
+                        text: f"Salário Bruto: R$ {root.salario_val:.2f}"
+                        font_style: "Caption"
+                        bold: True
+                    MDSlider:
+                        min: 1000
+                        max: 10000
+                        step: 100
+                        value: root.salario_val
+                        on_value: root.atualizar_salario(self.value)
+
+                # ==========================================
+                # ÁREA DA MISSÃO
+                # ==========================================
+                MDCard:
+                    orientation: 'vertical'
+                    padding: "16dp"
+                    spacing: "16dp"
+                    size_hint_y: None
+                    height: self.minimum_height
+                    radius: [10]
+                    md_bg_color: 1, 0.95, 0.8, 1 
+
+                    MDLabel:
+                        text: root.titulo_missao
+                        font_style: "Subtitle2"
+                        bold: True
+                        theme_text_color: "Error"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+
+                    MDLabel:
+                        text: root.texto_missao
+                        markup: True
+                        font_style: "Caption"
+                        theme_text_color: "Primary"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        text_size: self.width, None
+
+                    MDBoxLayout:
+                        id: action_container
+                        orientation: 'vertical'
+                        spacing: "8dp"
+                        size_hint_y: None
+                        height: self.minimum_height

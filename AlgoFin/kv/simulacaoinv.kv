@@ -1,0 +1,268 @@
+<SimulacaoInvScreen>:
+    MDBoxLayout:
+        orientation: 'vertical'
+        md_bg_color: 0.95, 0.95, 0.97, 1
+
+        MDTopAppBar:
+            title: "5. Simulação de Investimentos"
+            elevation: 2
+            left_action_items: [["arrow-left", lambda x: root.voltar()]]
+
+        ScrollView:
+            MDBoxLayout:
+                orientation: 'vertical'
+                padding: "16dp"
+                spacing: "24dp"
+                adaptive_height: True
+
+                # ==========================================
+                # BLOCO 1: FUNDAMENTOS TEÓRICOS
+                # ==========================================
+                MDCard:
+                    orientation: 'vertical'
+                    padding: "20dp"
+                    spacing: "12dp"
+                    size_hint_y: None
+                    height: self.minimum_height
+                    radius: [15]
+                    md_bg_color: 1, 1, 1, 1
+                    elevation: 2
+
+                    MDLabel:
+                        text: "A Mágica dos Aportes"
+                        font_style: "H6"
+                        bold: True
+                        theme_text_color: "Primary"
+
+                    MDLabel:
+                        text: "Investir não é apenas colocar um dinheiro e esquecer. Os grandes patrimônios são construídos com aportes (depósitos) regulares. Os juros compostos incidem não apenas sobre o capital inicial, mas sobre cada novo depósito que você faz."
+                        font_style: "Body2"
+                        theme_text_color: "Secondary"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+
+                # ==========================================
+                # O TUTOR IA (ANIMAÇÃO)
+                # ==========================================
+                MDBoxLayout:
+                    id: balao_robo
+                    opacity: 0
+                    orientation: 'horizontal'
+                    size_hint_y: None
+                    height: self.minimum_height
+                    spacing: "12dp"
+
+                    MDIcon:
+                        icon: "robot-excited-outline"
+                        font_size: "54sp"
+                        theme_text_color: "Custom"
+                        text_color: app.theme_cls.primary_color
+                        pos_hint: {"top": 1}
+
+                    MDCard:
+                        id: card_fala
+                        orientation: 'vertical'
+                        md_bg_color: 0.85, 0.92, 0.98, 1
+                        radius: [0, 20, 20, 20]
+                        padding: "16dp"
+                        spacing: "8dp"
+                        size_hint_y: None
+                        height: self.minimum_height
+                        elevation: 1
+
+                        MDLabel:
+                            text: "Corretora Ativada!"
+                            font_style: "Subtitle2"
+                            bold: True
+                            theme_text_color: "Primary"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+                        MDLabel:
+                            text: "Ajuste o seu capital inicial e, o mais importante, defina quanto você vai depositar TODO MÊS. Veja o seu patrimônio decolar no painel abaixo!"
+                            font_style: "Caption"
+                            theme_text_color: "Secondary"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+
+                # ==========================================
+                # BLOCO 2: DASHBOARD DO INVESTIDOR
+                # ==========================================
+                MDCard:
+                    orientation: 'vertical'
+                    padding: "20dp"
+                    spacing: "16dp"
+                    size_hint_y: None
+                    height: self.minimum_height
+                    radius: [15]
+                    md_bg_color: 0.15, 0.15, 0.2, 1 
+
+                    MDLabel:
+                        text: "PROJEÇÃO DE PATRIMÔNIO"
+                        font_style: "Overline"
+                        theme_text_color: "Custom"
+                        text_color: 0.7, 0.7, 0.7, 1
+                        halign: "center"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+                        size_hint_y: None
+                        height: self.minimum_height
+                        MDLabel:
+                            text: "Do seu bolso:"
+                            font_style: "Subtitle2"
+                            theme_text_color: "Custom"
+                            text_color: 1, 1, 1, 1
+                            size_hint_y: None
+                            height: self.texture_size[1]
+                        MDLabel:
+                            text: f"R$ {root.total_investido_calc:.2f}"
+                            font_style: "Body1"
+                            theme_text_color: "Custom"
+                            text_color: 0.8, 0.8, 0.8, 1 
+                            halign: "right"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+                        size_hint_y: None
+                        height: self.minimum_height
+                        MDLabel:
+                            text: "Rendimento (Juros):"
+                            font_style: "Subtitle2"
+                            theme_text_color: "Custom"
+                            text_color: 1, 1, 1, 1
+                            size_hint_y: None
+                            height: self.texture_size[1]
+                        MDLabel:
+                            text: f"+ R$ {root.total_juros_calc:.2f}"
+                            font_style: "Body1"
+                            theme_text_color: "Custom"
+                            text_color: 0.4, 0.8, 0.4, 1 
+                            halign: "right"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+
+                    MDSeparator:
+                        color: 0.4, 0.4, 0.4, 1
+
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+                        size_hint_y: None
+                        height: self.minimum_height
+                        MDLabel:
+                            text: "MONTANTE FINAL:"
+                            font_style: "Subtitle2"
+                            bold: True
+                            theme_text_color: "Custom"
+                            text_color: 1, 1, 1, 1
+                            size_hint_y: None
+                            height: self.texture_size[1]
+                        MDLabel:
+                            text: f"R$ {root.montante_final_calc:.2f}"
+                            font_style: "H6"
+                            bold: True
+                            theme_text_color: "Custom"
+                            text_color: 0.3, 0.6, 1, 1 # Azul Royal
+                            halign: "right"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+
+                # ==========================================
+                # OS SLIDERS INTERATIVOS 
+                # ==========================================
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: "60dp"
+                    MDLabel:
+                        text: f"Capital Inicial: R$ {root.capital_val:.2f}"
+                        font_style: "Caption"
+                        bold: True
+                    MDSlider:
+                        min: 0
+                        max: 2000
+                        step: 100
+                        value: root.capital_val
+                        on_value: root.atualizar_capital(self.value)
+
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: "60dp"
+                    MDLabel:
+                        text: f"Aporte Mensal (Depósito): R$ {root.aporte_val:.2f}"
+                        font_style: "Caption"
+                        bold: True
+                    MDSlider:
+                        min: 0
+                        max: 500
+                        step: 50
+                        value: root.aporte_val
+                        on_value: root.atualizar_aporte(self.value)
+
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: "60dp"
+                    MDLabel:
+                        text: f"Taxa de Juros: {root.taxa_val}% ao mês"
+                        font_style: "Caption"
+                        bold: True
+                    MDSlider:
+                        min: 1
+                        max: 5
+                        step: 1
+                        value: root.taxa_val
+                        on_value: root.atualizar_taxa(self.value)
+                        
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: "60dp"
+                    MDLabel:
+                        text: f"Tempo: {root.tempo_val} meses"
+                        font_style: "Caption"
+                        bold: True
+                    MDSlider:
+                        min: 1
+                        max: 60
+                        step: 1
+                        value: root.tempo_val
+                        on_value: root.atualizar_tempo(self.value)
+
+                # ==========================================
+                # BLOCO 3: MISSÃO DE MODELAGEM DINÂMICA
+                # ==========================================
+                MDCard:
+                    orientation: 'vertical'
+                    padding: "16dp"
+                    spacing: "16dp"
+                    size_hint_y: None
+                    height: self.minimum_height
+                    radius: [10]
+                    md_bg_color: 1, 0.95, 0.8, 1 
+
+                    MDLabel:
+                        text: root.titulo_missao
+                        font_style: "Subtitle2"
+                        bold: True
+                        theme_text_color: "Error"
+
+                    MDLabel:
+                        text: root.texto_missao
+                        markup: True
+                        font_style: "Caption"
+                        theme_text_color: "Primary"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        text_size: self.width, None
+
+                    MDBoxLayout:
+                        id: action_container
+                        orientation: 'vertical'
+                        spacing: "8dp"
+                        size_hint_y: None
+                        height: self.minimum_height

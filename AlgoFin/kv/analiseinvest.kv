@@ -1,0 +1,264 @@
+<AnaliseInvestScreen>:
+    MDBoxLayout:
+        orientation: 'vertical'
+        md_bg_color: 0.95, 0.95, 0.97, 1
+
+        MDTopAppBar:
+            title: "5. Análise de Investimentos"
+            elevation: 2
+            left_action_items: [["arrow-left", lambda x: root.voltar()]]
+
+        ScrollView:
+            MDBoxLayout:
+                orientation: 'vertical'
+                padding: "16dp"
+                spacing: "24dp"
+                adaptive_height: True
+
+                # ==========================================
+                # BLOCO 1: FUNDAMENTOS TEÓRICOS
+                # ==========================================
+                MDCard:
+                    orientation: 'vertical'
+                    padding: "20dp"
+                    spacing: "12dp"
+                    size_hint_y: None
+                    height: self.minimum_height
+                    radius: [15]
+                    md_bg_color: 1, 1, 1, 1
+                    elevation: 2
+
+                    MDLabel:
+                        text: "Métricas de Ouro: ROI e Payback"
+                        font_style: "H6"
+                        bold: True
+                        theme_text_color: "Primary"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+
+                    MDLabel:
+                        text: "Investidores profissionais não olham apenas para o valor do lucro bruto, eles usam métricas relativas:\n\n• [b]ROI (Retorno sobre o Investimento):[/b] Lucro Anual dividido pelo Investimento Inicial. Mede a eficiência do dinheiro.\n• [b]Payback:[/b] Tempo necessário para que o lucro acumulado empate com o dinheiro que você gastou para abrir o negócio."
+                        markup: True
+                        font_style: "Body2"
+                        theme_text_color: "Secondary"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+
+                # ==========================================
+                # O TUTOR IA (ANIMAÇÃO)
+                # ==========================================
+                MDBoxLayout:
+                    id: balao_robo
+                    opacity: 0
+                    orientation: 'horizontal'
+                    size_hint_y: None
+                    height: self.minimum_height
+                    spacing: "12dp"
+
+                    MDIcon:
+                        icon: "briefcase-search-outline"
+                        font_size: "54sp"
+                        theme_text_color: "Custom"
+                        text_color: app.theme_cls.primary_color
+                        pos_hint: {"top": 1}
+
+                    MDCard:
+                        id: card_fala
+                        orientation: 'vertical'
+                        md_bg_color: 0.85, 0.92, 0.98, 1
+                        radius: [0, 20, 20, 20]
+                        padding: "16dp"
+                        spacing: "8dp"
+                        size_hint_y: None
+                        height: self.minimum_height
+                        elevation: 1
+
+                        MDLabel:
+                            text: "Mesa de Negociações!"
+                            font_style: "Subtitle2"
+                            bold: True
+                            theme_text_color: "Primary"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+
+                        MDLabel:
+                            text: "Você tem 3 propostas de empresas na mesa. Nem sempre a empresa que dá mais dinheiro é a mais eficiente. Clique nelas para processar os indicadores e cumpra as missões!"
+                            font_style: "Caption"
+                            theme_text_color: "Secondary"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+
+                # ==========================================
+                # BLOCO 2: AS 3 PROPOSTAS CLICÁVEIS
+                # ==========================================
+                MDCard:
+                    orientation: 'vertical'
+                    padding: "16dp"
+                    size_hint_y: None
+                    height: self.minimum_height
+                    radius: [10]
+                    md_bg_color: 0.9, 0.9, 0.95, 1
+                    ripple_behavior: True
+                    on_release: root.selecionar_empresa(1)
+
+                    MDLabel:
+                        text: "EMPRESA A: Padaria de Bairro"
+                        font_style: "Subtitle2"
+                        bold: True
+                        theme_text_color: "Primary"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                    MDLabel:
+                        text: "Custa R$ 50.000 para abrir. Dá R$ 30.000 de lucro líquido ao ano."
+                        font_style: "Caption"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+
+                MDCard:
+                    orientation: 'vertical'
+                    padding: "16dp"
+                    size_hint_y: None
+                    height: self.minimum_height
+                    radius: [10]
+                    md_bg_color: 0.95, 0.9, 0.9, 1
+                    ripple_behavior: True
+                    on_release: root.selecionar_empresa(2)
+
+                    MDLabel:
+                        text: "EMPRESA B: Startup de App"
+                        font_style: "Subtitle2"
+                        bold: True
+                        theme_text_color: "Primary"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                    MDLabel:
+                        text: "Custa R$ 200.000 para abrir. Dá R$ 40.000 de lucro líquido ao ano."
+                        font_style: "Caption"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+
+                MDCard:
+                    orientation: 'vertical'
+                    padding: "16dp"
+                    size_hint_y: None
+                    height: self.minimum_height
+                    radius: [10]
+                    md_bg_color: 0.9, 0.95, 0.9, 1
+                    ripple_behavior: True
+                    on_release: root.selecionar_empresa(3)
+
+                    MDLabel:
+                        text: "EMPRESA C: Franquia de Fast Food"
+                        font_style: "Subtitle2"
+                        bold: True
+                        theme_text_color: "Primary"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                    MDLabel:
+                        text: "Custa R$ 150.000 para abrir. Dá R$ 150.000 de lucro líquido ao ano."
+                        font_style: "Caption"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+
+                # ==========================================
+                # DASHBOARD DO ALGORITMO (ROI e PAYBACK)
+                # ==========================================
+                MDCard:
+                    orientation: 'vertical'
+                    padding: "20dp"
+                    spacing: "12dp"
+                    size_hint_y: None
+                    height: self.minimum_height
+                    radius: [15]
+                    md_bg_color: 0.15, 0.15, 0.2, 1 
+
+                    MDLabel:
+                        text: f"ANÁLISE: {root.nome_empresa}"
+                        font_style: "Subtitle2"
+                        bold: True
+                        theme_text_color: "Custom"
+                        text_color: 0.4, 0.8, 1, 1 
+                        halign: "center"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        
+                    MDSeparator:
+                        color: 0.4, 0.4, 0.4, 1
+
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+                        size_hint_y: None
+                        height: self.minimum_height
+                        MDLabel:
+                            text: "ROI (Lucratividade Anual):"
+                            font_style: "Caption"
+                            theme_text_color: "Custom"
+                            text_color: 1, 1, 1, 1
+                            size_hint_y: None
+                            height: self.texture_size[1]
+                        MDLabel:
+                            text: f"{root.roi_calc:.1f}%"
+                            font_style: "H6"
+                            bold: True
+                            theme_text_color: "Custom"
+                            text_color: 0.4, 0.8, 0.4, 1 # Verde
+                            halign: "right"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+                            
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+                        size_hint_y: None
+                        height: self.minimum_height
+                        MDLabel:
+                            text: "PAYBACK (Tempo de Retorno):"
+                            font_style: "Caption"
+                            theme_text_color: "Custom"
+                            text_color: 1, 1, 1, 1
+                            size_hint_y: None
+                            height: self.texture_size[1]
+                        MDLabel:
+                            text: f"{root.payback_calc:.0f} meses"
+                            font_style: "H6"
+                            bold: True
+                            theme_text_color: "Custom"
+                            text_color: 0.9, 0.7, 0.2, 1 # Amarelo/Dourado
+                            halign: "right"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+
+                # ==========================================
+                # ÁREA DA MISSÃO
+                # ==========================================
+                MDCard:
+                    orientation: 'vertical'
+                    padding: "16dp"
+                    spacing: "16dp"
+                    size_hint_y: None
+                    height: self.minimum_height
+                    radius: [10]
+                    md_bg_color: 1, 0.95, 0.8, 1 
+
+                    MDLabel:
+                        text: root.titulo_missao
+                        font_style: "Subtitle2"
+                        bold: True
+                        theme_text_color: "Error"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+
+                    MDLabel:
+                        text: root.texto_missao
+                        markup: True
+                        font_style: "Caption"
+                        theme_text_color: "Primary"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        text_size: self.width, None
+
+                    MDBoxLayout:
+                        id: action_container
+                        orientation: 'vertical'
+                        spacing: "8dp"
+                        size_hint_y: None
+                        height: self.minimum_height

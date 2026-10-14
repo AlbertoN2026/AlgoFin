@@ -1,0 +1,176 @@
+<PadroesScreen>:
+    MDBoxLayout:
+        orientation: 'vertical'
+        md_bg_color: 0.95, 0.95, 0.97, 1
+
+        MDTopAppBar:
+            title: "6. Reconhecimento de Padrões"
+            elevation: 2
+            left_action_items: [["arrow-left", lambda x: root.voltar()]]
+
+        ScrollView:
+            MDBoxLayout:
+                orientation: 'vertical'
+                padding: "16dp"
+                spacing: "24dp"
+                adaptive_height: True
+
+                # ==========================================
+                # O TUTOR IA (ROBÔ ANIMADO)
+                # ==========================================
+                MDBoxLayout:
+                    id: balao_robo
+                    opacity: 0
+                    orientation: 'horizontal'
+                    size_hint_y: None
+                    height: self.minimum_height
+                    spacing: "12dp"
+
+                    MDIcon:
+                        icon: "robot-outline"
+                        font_size: "54sp"
+                        theme_text_color: "Custom"
+                        text_color: app.theme_cls.primary_color
+                        pos_hint: {"top": 1}
+
+                    MDCard:
+                        id: card_fala
+                        orientation: 'vertical'
+                        md_bg_color: 0.85, 0.92, 0.98, 1
+                        radius: [0, 20, 20, 20]
+                        padding: "16dp"
+                        spacing: "8dp"
+                        size_hint_y: None
+                        height: self.minimum_height
+                        elevation: 1
+
+                        MDLabel:
+                            text: root.titulo_robo
+                            font_style: "Subtitle2"
+                            bold: True
+                            theme_text_color: "Primary"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+                            text_size: self.width, None
+
+                        MDLabel:
+                            text: root.fala_robo
+                            font_style: "Caption"
+                            theme_text_color: "Secondary"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+                            text_size: self.width, None
+
+                # ==========================================
+                # CABEÇALHO DO PADRÃO
+                # ==========================================
+                MDBoxLayout:
+                    orientation: 'horizontal'
+                    size_hint_y: None
+                    height: "30dp"
+                    spacing: "8dp"
+
+                    MDIcon:
+                        icon: root.icone_fase
+                        theme_text_color: "Error"
+                        font_size: "24sp"
+
+                    MDLabel:
+                        text: root.titulo_fase
+                        font_style: "H6"
+                        bold: True
+                        size_hint_y: None
+                        height: self.texture_size[1]
+
+                # ==========================================
+                # A SEQUÊNCIA (O PROBLEMA LÓGICO)
+                # ==========================================
+                MDCard:
+                    orientation: 'vertical'
+                    padding: "24dp"
+                    spacing: "16dp"
+                    size_hint_y: None
+                    height: self.minimum_height
+                    radius: [15]
+                    elevation: 2
+                    md_bg_color: 1, 1, 1, 1
+
+                    MDLabel:
+                        text: root.sequencia_texto
+                        markup: True    # <--- ADICIONE ESTA LINHA PARA ATIVAR CORES
+                        font_style: "H6"
+                        theme_text_color: "Custom"
+                        text_color: 0.2, 0.2, 0.2, 1
+                        halign: "center"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        text_size: self.width, None
+
+                MDLabel:
+                    text: "Identifique a regra lógica e escolha o próximo elemento:"
+                    font_style: "Caption"
+                    halign: "center"
+                    theme_text_color: "Secondary"
+
+                # ==========================================
+                # BOTÕES DE RESPOSTA (A, B, C)
+                # ==========================================
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    spacing: "12dp"
+                    size_hint_y: None
+                    height: self.minimum_height
+
+                    # Botão A
+                    MDCard:
+                        size_hint_y: None
+                        height: self.minimum_height
+                        padding: "16dp"
+                        radius: [10]
+                        md_bg_color: 0.85, 0.92, 0.98, 1
+                        ripple_behavior: True
+                        on_release: root.processar_escolha("A")
+                        MDLabel:
+                            text: root.opcao_a
+                            font_style: "Subtitle2"
+                            theme_text_color: "Primary"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+                            text_size: self.width, None
+                            halign: "center"
+
+                    # Botão B
+                    MDCard:
+                        size_hint_y: None
+                        height: self.minimum_height
+                        padding: "16dp"
+                        radius: [10]
+                        md_bg_color: 0.85, 0.92, 0.98, 1
+                        ripple_behavior: True
+                        on_release: root.processar_escolha("B")
+                        MDLabel:
+                            text: root.opcao_b
+                            font_style: "Subtitle2"
+                            theme_text_color: "Primary"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+                            text_size: self.width, None
+                            halign: "center"
+
+                    # Botão C
+                    MDCard:
+                        size_hint_y: None
+                        height: self.minimum_height
+                        padding: "16dp"
+                        radius: [10]
+                        md_bg_color: 0.85, 0.92, 0.98, 1
+                        ripple_behavior: True
+                        on_release: root.processar_escolha("C")
+                        MDLabel:
+                            text: root.opcao_c
+                            font_style: "Subtitle2"
+                            theme_text_color: "Primary"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+                            text_size: self.width, None
+                            halign: "center"

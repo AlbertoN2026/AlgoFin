@@ -1,0 +1,116 @@
+<AbstracaoScreen>:
+    MDBoxLayout:
+        orientation: 'vertical'
+        md_bg_color: 0.95, 0.95, 0.97, 1
+
+        MDTopAppBar:
+            title: "8. Abstração"
+            elevation: 2
+            left_action_items: [["arrow-left", lambda x: root.voltar()]]
+
+        ScrollView:
+            MDBoxLayout:
+                orientation: 'vertical'
+                padding: "16dp"
+                spacing: "24dp"
+                adaptive_height: True
+
+                # ==========================================
+                # O TUTOR IA (ROBÔ ANIMADO)
+                # ==========================================
+                MDBoxLayout:
+                    id: balao_robo
+                    opacity: 0
+                    orientation: 'horizontal'
+                    size_hint_y: None
+                    height: self.minimum_height
+                    spacing: "12dp"
+
+                    MDIcon:
+                        icon: "robot-outline"
+                        font_size: "54sp"
+                        theme_text_color: "Custom"
+                        text_color: app.theme_cls.primary_color
+                        pos_hint: {"top": 1}
+
+                    MDCard:
+                        id: card_fala
+                        orientation: 'vertical'
+                        md_bg_color: 0.85, 0.92, 0.98, 1
+                        radius: [0, 20, 20, 20]
+                        padding: "16dp"
+                        spacing: "8dp"
+                        size_hint_y: None
+                        height: self.minimum_height
+                        elevation: 1
+
+                        MDLabel:
+                            text: root.titulo_robo
+                            font_style: "Subtitle2"
+                            bold: True
+                            theme_text_color: "Primary"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+                            text_size: self.width, None
+
+                        MDLabel:
+                            text: root.fala_robo
+                            font_style: "Caption"
+                            theme_text_color: "Secondary"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+                            text_size: self.width, None
+
+                # ==========================================
+                # A HISTÓRIA (COM RUÍDOS)
+                # ==========================================
+                MDLabel:
+                    text: root.titulo_fase
+                    font_style: "H6"
+                    bold: True
+                    theme_text_color: "Primary"
+                    halign: "center"
+
+                MDCard:
+                    orientation: 'vertical'
+                    padding: "20dp"
+                    size_hint_y: None
+                    height: self.minimum_height
+                    radius: [15]
+                    elevation: 2
+                    md_bg_color: 1, 1, 1, 1
+
+                    MDLabel:
+                        text: root.historia_texto
+                        markup: True
+                        font_style: "Body2"
+                        theme_text_color: "Primary"
+                        halign: "justify"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        text_size: self.width, None
+
+                MDLabel:
+                    text: "Filtro Ativado: Selecione APENAS os dados necessários para calcular a operação financeira."
+                    font_style: "Caption"
+                    halign: "center"
+                    theme_text_color: "Secondary"
+
+                # ==========================================
+                # CONTAINER DE VARIÁVEIS (DADOS MISTURADOS)
+                # ==========================================
+                MDBoxLayout:
+                    id: container_dados
+                    orientation: 'vertical'
+                    spacing: "12dp"
+                    adaptive_height: True
+
+                # ==========================================
+                # BOTÃO DE AÇÃO
+                # ==========================================
+                MDRaisedButton:
+                    text: "EXTRAIR VARIÁVEIS"
+                    pos_hint: {"center_x": .5}
+                    size_hint_x: 0.9
+                    md_bg_color: app.theme_cls.primary_color
+                    on_release: root.validar_abstracao()

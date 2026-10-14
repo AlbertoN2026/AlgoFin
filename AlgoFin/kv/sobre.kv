@@ -1,0 +1,53 @@
+<SobreScreen>:
+    MDBoxLayout:
+        orientation: 'vertical'
+        md_bg_color: 0.95, 0.95, 0.97, 1
+        
+        MDTopAppBar:
+            title: "Sobre o AlgoFin"
+            left_action_items: [["arrow-left", lambda x: setattr(root.manager, 'current', 'inicial')]]
+        
+        ScrollView:
+            MDBoxLayout:
+                orientation: 'vertical'
+                padding: "20dp"
+                spacing: "20dp"
+                adaptive_height: True
+                
+                MDLabel:
+                    text: "Projeto e Documentos"
+                    font_style: "H6"
+                    bold: True
+                    adaptive_height: True
+
+                # CARD DO GUIA DO ESTUDANTE
+                MDCard:
+                    orientation: "vertical"
+                    size_hint: 1, None
+                    height: "150dp"
+                    padding: "16dp"
+                    radius: [15]
+                    elevation: 1
+                    
+                    MDBoxLayout:
+                        spacing: "10dp"
+                        MDIcon:
+                            icon: "information-outline"
+                            theme_text_color: "Custom"
+                            text_color: 0.2, 0.2, 0.8, 1 
+                            font_size: "32sp"
+                        MDLabel:
+                            text: "Guia do Estudante"
+                            bold: True
+                            font_style: "Subtitle1"
+                    
+                    MDLabel:
+                        text: "Regulamento de uso, habilidades do Pensamento Computacional e dicas para as Olimpíadas."
+                        font_style: "Caption"
+                        theme_text_color: "Secondary"
+                        adaptive_height: True
+
+                    MDRaisedButton:
+                        text: "ABRIR GUIA"
+                        pos_hint: {"right": 1}
+                        on_release: root.abrir_guia()

@@ -1,0 +1,69 @@
+{
+  "questoes": [
+    {
+      "origem": "OLITEF - Caderno Oficial",
+      "tema": "A Jornada do Dinheiro",
+      "pergunta": "Antes da invenção do dinheiro em moedas ou papel, as pessoas trocavam coisas entre si (ex: frutas por roupas). Como era conhecida essa prática que deu origem ao comércio?",
+      "opcoes": [
+        "A) Câmbio",
+        "B) Escambo",
+        "C) Crédito",
+        "D) Pix"
+      ],
+      "correta": "B) Escambo",
+      "dica_ia": "No começo era o Escambo! Depois, para facilitar, as pessoas passaram a usar o Sal como moeda de troca (sabia que é daí que vem a palavra 'salário'?). Só muito tempo depois surgiram as moedas, o papel e, hoje, o dinheiro eletrônico como o Pix![cite: 4]"
+    },
+    {
+      "origem": "OLITEF - Caderno Oficial",
+      "tema": "Matemática Financeira",
+      "pergunta": "Qual é a principal diferença matemática entre os Juros Simples e os Juros Compostos ao longo do tempo?",
+      "opcoes": [
+        "A) Os juros simples são cobrados pelo Banco Central, os compostos não.",
+        "B) Juros simples crescem de forma linear (constante), enquanto os juros compostos crescem de forma exponencial (efeito bola de neve).",
+        "C) Juros compostos só existem em investimentos de Renda Variável.",
+        "D) Não há diferença, ambos rendem o mesmo valor no final do ano."
+      ],
+      "correta": "B) Juros simples crescem de forma linear (constante), enquanto os juros compostos crescem de forma exponencial (efeito bola de neve).",
+      "dica_ia": "O tempo é seu aliado ou seu pior inimigo! Nos Juros Compostos, o juro do segundo mês é calculado também sobre o juro do primeiro mês. Isso gera o famoso efeito 'bola de neve', que é ótimo para investimentos, mas um perigo para dívidas![cite: 4]"
+    },
+    {
+      "origem": "OLITEF - Caderno Oficial",
+      "tema": "Economia Básica",
+      "pergunta": "A inflação age como uma 'vilã' que faz os preços subirem e o seu dinheiro valer menos. Qual é a principal taxa que o Banco Central (COPOM) utiliza como um 'GPS' para combater a inflação?",
+      "opcoes": [
+        "A) Taxa de Desemprego",
+        "B) Produto Interno Bruto (PIB)",
+        "C) Taxa Selic Meta",
+        "D) Imposto de Renda"
+      ],
+      "correta": "C) Taxa Selic Meta",
+      "dica_ia": "A Taxa Selic é o GPS da economia! Se a inflação (alta dos preços) está subindo como uma panela de pressão prestes a estourar, o COPOM sobe a Taxa Selic para encarecer os empréstimos e esfriar o consumo.[cite: 4]"
+    },
+    {
+      "origem": "OLITEF - Caderno Oficial",
+      "tema": "Renda Fixa",
+      "pergunta": "Quando você investe no 'Tesouro Direto', para quem você está emprestando o seu dinheiro e o que você recebe em troca?",
+      "opcoes": [
+        "A) Empresta para a Bolsa de Valores (B3) e recebe ações.",
+        "B) Empresta para o Tesouro Nacional (Estado Brasileiro) e recebe juros.",
+        "C) Empresta para outros estudantes e recebe descontos.",
+        "D) Empresta para Bancos Privados e recebe CDBs."
+      ],
+      "correta": "B) Empresta para o Tesouro Nacional (Estado Brasileiro) e recebe juros.",
+      "dica_ia": "Os títulos públicos são considerados os investimentos mais seguros do Brasil! Você financia projetos de infraestrutura, educação e saúde do Estado, e em troca, o Tesouro Nacional te devolve o dinheiro corrigido com juros.[cite: 4]"
+    },
+    {
+      "origem": "OLITEF - Caderno Oficial",
+      "tema": "Empreendedorismo",
+      "pergunta": "Na história de Manu e Dedé, eles transformaram uma sala bagunçada em um projeto de caixas organizadoras para a família. Qual a definição correta de empreendedorismo ensinada pelo Tio Tomaz?",
+      "opcoes": [
+        "A) Empreender é apenas abrir uma grande empresa na Bolsa de Valores.",
+        "B) Empreender é perceber um problema, ter uma ideia e tentar resolver com o que tem disponível.",
+        "C) Empreender é pegar dinheiro emprestado no banco para comprar roupas.",
+        "D) Empreender é guardar dinheiro debaixo do colchão."
+      ],
+      "correta": "B) Empreender é perceber um problema, ter uma ideia e tentar resolver com o que tem disponível.",
+      "dica_ia": "Radar ligado, mente aberta! Quando juntamos uma boa ideia com a vontade de ajudar, transformamos o mundo ao nosso redor. Isso é a base do Empreendedorismo Social![cite: 4]"
+    }
+  ]
+}

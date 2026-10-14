@@ -1,0 +1,144 @@
+<TopicoCard@MDCard>:
+    orientation: "horizontal"
+    size_hint_y: None
+    height: "80dp"
+    padding: "15dp"
+    spacing: "15dp"
+    radius: [10]
+    
+    # Lógica de Design: Perde a sombra e fica cinza se estiver bloqueado
+    elevation: 1 if not self.disabled else 0
+    ripple_behavior: True if not self.disabled else False
+    md_bg_color: (1, 1, 1, 1) if not self.disabled else (0.9, 0.9, 0.9, 1)
+    
+    icon: ""
+    titulo: ""
+    
+    MDIcon:
+        icon: root.icon
+        font_size: "32sp"
+        theme_text_color: "Custom"
+        # O ícone fica azul se liberado, e cinza se bloqueado
+        text_color: (0.1, 0.4, 0.7, 1) if not root.disabled else (0.6, 0.6, 0.6, 1)
+        pos_hint: {"center_y": .5}
+        
+    MDLabel:
+        text: root.titulo
+        bold: True
+        font_style: "Subtitle2"
+        theme_text_color: "Primary" if not root.disabled else "Secondary"
+
+<Modulo1Screen>:
+    # Garante que os cadeados sejam atualizados ao entrar na tela
+    on_pre_enter: root.forcar_atualizacao()
+
+    MDBoxLayout:
+        orientation: 'vertical'
+        md_bg_color: 0.95, 0.95, 0.97, 1
+        
+        MDTopAppBar:
+            title: "Módulo I"
+            elevation: 2
+            left_action_items: [["arrow-left", lambda x: setattr(root.manager, 'current', 'inicial')]]
+
+        ScrollView:
+            MDBoxLayout:
+                orientation: 'vertical'
+                padding: "20dp"
+                spacing: "12dp"
+                adaptive_height: True
+
+                MDLabel:
+                    text: "Fundamentos Iniciais"
+                    font_style: "H6"
+                    bold: True
+                    adaptive_height: True
+                
+                MDLabel:
+                    text: "Selecione um tópico para acessar o laboratório correspondente."
+                    theme_text_color: "Secondary"
+                    font_style: "Caption"
+                    adaptive_height: True
+                
+                MDSeparator:
+                    height: "10dp"
+                    color: 0, 0, 0, 0
+
+                # ==========================================
+                # A ESCADINHA COM OS SEUS CARTÕES
+                # ==========================================
+                
+                TopicoCard:
+                    icon: "check-circle" if app.nivel_modulo1 > 1 else "calendar-check"
+                    titulo: "Organização e Planejamento Financeiro"
+                    on_release: root.abrir_planejamento()
+
+                TopicoCard:
+                    disabled: app.nivel_modulo1 < 2
+                    icon: "lock" if app.nivel_modulo1 < 2 else ("check-circle" if app.nivel_modulo1 > 2 else "home-group")
+                    titulo: "Orçamento Pessoal e Familiar" if app.nivel_modulo1 >= 2 else "??? (Conclua a Fase 1)"
+                    on_release: root.abrir_orcamento()
+
+                TopicoCard:
+                    disabled: app.nivel_modulo1 < 3
+                    icon: "lock" if app.nivel_modulo1 < 3 else ("check-circle" if app.nivel_modulo1 > 3 else "leaf")
+                    titulo: "Consumo Consciente" if app.nivel_modulo1 >= 3 else "??? (Conclua a Fase 2)"
+                    on_release: root.abrir_consumo()
+
+                # --- FASE 4 ---
+                TopicoCard:
+                    disabled: app.nivel_modulo1 < 4
+                    
+                    # A linha abaixo foi atualizada para gerar o "check-circle" quando nivel > 4
+                    icon: "lock" if app.nivel_modulo1 < 4 else ("check-circle" if app.nivel_modulo1 > 4 else "percent")
+                    
+                    titulo: "Porcentagens no Cotidiano" if app.nivel_modulo1 >= 4 else "??? (Conclua a Fase 3)"
+                    on_release: root.abrir_porcentagem()
+
+                # --- FASE 5 ---
+                TopicoCard:
+                    disabled: app.nivel_modulo1 < 5
+                    # A regra abaixo coloca o "check-circle" quando o aluno tiver nível maior que 5!
+                    icon: "lock" if app.nivel_modulo1 < 5 else ("check-circle" if app.nivel_modulo1 > 5 else "sitemap")
+                    titulo: "Algoritmos e Fluxogramas" if app.nivel_modulo1 >= 5 else "??? (Conclua a Fase 4)"
+                    on_release: root.abrir_algoritmos()
+
+                # --- FASE 6 ---
+                TopicoCard:
+                    disabled: app.nivel_modulo1 < 6
+                    icon: "lock" if app.nivel_modulo1 < 6 else ("check-circle" if app.nivel_modulo1 > 6 else "shape-outline")
+                    titulo: "Reconhecimento de Padrões" if app.nivel_modulo1 >= 6 else "??? (Conclua a Fase 5)"
+                    on_release: root.abrir_padroes()
+
+                # --- FASE 7 ---
+                TopicoCard:
+                    disabled: app.nivel_modulo1 < 7
+                    icon: "lock" if app.nivel_modulo1 < 7 else ("check-circle" if app.nivel_modulo1 > 7 else "puzzle-outline")
+                    titulo: "Decomposição de Problemas" if app.nivel_modulo1 >= 7 else "??? (Conclua a Fase 6)"
+                    on_release: root.abrir_decomposicao()
+
+                # --- FASE 8 ---
+                TopicoCard:
+                    disabled: app.nivel_modulo1 < 8
+                    icon: "lock" if app.nivel_modulo1 < 8 else ("check-circle" if app.nivel_modulo1 > 8 else "filter-outline")
+                    titulo: "Abstração (Filtro de Ruídos)" if app.nivel_modulo1 >= 8 else "??? (Conclua a Fase 7)"
+                    on_release: root.abrir_abstracao()
+
+                # --- FASE 9: DESAFIOS BEBRAS ---
+                TopicoCard:
+                    disabled: app.nivel_modulo1 < 9
+                    icon: "lock" if app.nivel_modulo1 < 9 else ("check-circle" if app.nivel_modulo1 > 9 else "head-lightbulb-outline")
+                    titulo: "9. Desafios Bebras" if app.nivel_modulo1 >= 9 else "??? (Conclua as Fases Anteriores)"
+                    on_release: root.abrir_bebras()
+
+                # ==========================================
+                # BOTÃO SECRETO DO DESENVOLVEDOR (REMOVER DEPOIS)
+                # ==========================================
+                MDRaisedButton:
+                    text: "ZERAR PROGRESSO (TESTE)"
+                    md_bg_color: 0.8, 0.1, 0.1, 1  # Cor vermelha para destacar
+                    pos_hint: {"center_x": .5}
+                    size_hint_x: 0.9
+                    on_release:
+                        app.nivel_modulo1 = 1
+                        app.save_data()
