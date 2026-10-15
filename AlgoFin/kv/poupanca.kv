@@ -1,0 +1,117 @@
+<PoupancaScreen>:
+    MDBoxLayout:
+        orientation: 'vertical'
+        md_bg_color: 0.95, 0.95, 0.97, 1
+        
+        MDTopAppBar:
+            title: "Poupança Interativa"
+            elevation: 2
+            left_action_items: [["arrow-left", lambda x: setattr(root.manager, 'current', 'inicial')]]
+            right_action_items: [["undo", lambda x: root.desfazer_bloco(), "Desfazer o último bloco"], ["trash-can-outline", lambda x: root.confirmar_limpar(), "Apagar os blocos do algoritmo"]]
+
+        MDBoxLayout:
+            orientation: 'vertical'
+            padding: "16dp"
+            spacing: "12dp"
+
+            # --- PLACAR DE MOEDAS ---
+            MDBoxLayout:
+                size_hint_y: None
+                height: "36dp"
+                pos_hint: {"center_x": .5}
+                adaptive_width: True
+                MDCard:
+                    size_hint: None, None
+                    size: "140dp", "36dp"
+                    radius: [18]
+                    md_bg_color: 1, 0.7, 0.1, 0.15
+                    elevation: 0
+                    padding: "10dp", "4dp", "10dp", "4dp"
+                    MDBoxLayout:
+                        orientation: "horizontal"
+                        spacing: "6dp"
+                        MDIcon:
+                            icon: "star" 
+                            theme_text_color: "Custom"
+                            text_color: 0.9, 0.5, 0, 1
+                            font_size: "20sp"
+                            pos_hint: {"center_y": .5}
+                        MDLabel:
+                            text: f"{app.moedas} moedas"
+                            bold: True
+                            font_style: "Subtitle2"
+                            theme_text_color: "Custom"
+                            text_color: 0.9, 0.5, 0, 1
+                            pos_hint: {"center_y": .5}
+
+            # --- O DESAFIO PROCEDURAL ---
+            MDCard:
+                size_hint_y: None
+                height: "110dp"
+                padding: "12dp"
+                # FUNDO CLARO: Um amarelo/bege suave
+                md_bg_color: 1, 0.98, 0.85, 1 
+                elevation: 1
+                
+                MDBoxLayout:
+                    orientation: "vertical"
+                    
+                    MDLabel:
+                        text: "Missão Algorítmica"
+                        bold: True
+                        font_style: "Subtitle2"
+                        # TÍTULO ESCURO: Vermelho forte
+                        theme_text_color: "Custom"
+                        text_color: 0.8, 0.1, 0.1, 1
+                        
+                    MDLabel:
+                        text: root.missao_texto
+                        font_style: "Caption"
+                        # TEXTO ESCURO: Preto puro para garantir a leitura
+                        theme_text_color: "Custom"
+                        text_color: 0, 0, 0, 1
+
+            # --- ÁREA DE TRABALHO (A SEÇÃO QUE ESTAVA FALTANDO!) ---
+            MDLabel:
+                text: "Seu Algoritmo de Decisão:"
+                font_style: "Subtitle2"
+                size_hint_y: None
+                height: self.texture_size[1]
+
+            MDLabel:
+                text: "Toque nos blocos na ordem em que o computador deve executá-los. A seta desfaz o último; a lixeira apaga todos."
+                font_style: "Caption"
+                theme_text_color: "Secondary"
+                size_hint_y: None
+                height: self.texture_size[1]
+
+            ScrollView:
+                MDBoxLayout:
+                    id: area_trabalho
+                    orientation: "vertical"
+                    spacing: "8dp"
+                    padding: "8dp"
+                    adaptive_height: True
+                    # A cor de fundo fica aqui, dentro do MDBoxLayout!
+                    md_bg_color: 0.9, 0.9, 0.9, 1
+
+            MDSeparator:
+
+            # --- PALETA DE BLOCOS DINÂMICOS ---
+            ScrollView:
+                size_hint_y: None
+                height: "200dp" 
+                MDGridLayout:
+                    id: paleta_blocos   
+                    cols: 1
+                    spacing: "12dp"
+                    padding: "4dp"
+                    adaptive_height: True
+            
+            # --- BOTÃO DE EXECUÇÃO ---
+            MDRaisedButton:
+                text: "EXECUTAR ALGORITMO"
+                pos_hint: {"center_x": .5}
+                size_hint_x: 0.9
+                md_bg_color: app.theme_cls.primary_color
+                on_release: root.executar_algoritmo()
