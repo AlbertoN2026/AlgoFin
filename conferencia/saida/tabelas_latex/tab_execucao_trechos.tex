@@ -1,0 +1,39 @@
+% Gerado por executar_trechos.py — não editar à mão
+\begin{table}[htb]
+\centering
+\caption{Execução do trecho do simulador de juros (Código~\ref{lst:mvc}) na versão anterior e na corrigida}
+\label{tab:execucao-juros}
+\footnotesize
+\begin{tabular}{L{2.7cm} L{3.4cm} L{4.0cm} L{4.0cm}}
+\hline
+Caso & Entrada & Versão anterior (1.ª linha da resposta) & Versão corrigida (1.ª linha da resposta) \\ \hline
+Valores típicos & C=\textquotesingle{}1000\textquotesingle{}, i=\textquotesingle{}1\textquotesingle{}, n=\textquotesingle{}12\textquotesingle{} & Montante Final: R\$ 1126.83 & Montante final: R\$ 1.126,83 \\ \hline
+Taxa com vírgula decimal & C=\textquotesingle{}1000\textquotesingle{}, i=\textquotesingle{}1,5\textquotesingle{}, n=\textquotesingle{}12\textquotesingle{} & Erro: Introduza apenas numeros. & Montante final: R\$ 1.195,62 \\ \hline
+Capital com ponto de milhar & C=\textquotesingle{}1.000\textquotesingle{}, i=\textquotesingle{}1\textquotesingle{}, n=\textquotesingle{}12\textquotesingle{} & Montante Final: R\$ 1.13 & Montante final: R\$ 1.126,83 \\ \hline
+Capital negativo & C=\textquotesingle{}-1000\textquotesingle{}, i=\textquotesingle{}1\textquotesingle{}, n=\textquotesingle{}12\textquotesingle{} & Montante Final: R\$ -1126.83 & Mensagem de orientação (números não negativos, meses inteiros, exemplos) \\ \hline
+Taxa negativa & C=\textquotesingle{}1000\textquotesingle{}, i=\textquotesingle{}-5\textquotesingle{}, n=\textquotesingle{}12\textquotesingle{} & Montante Final: R\$ 540.36 & Mensagem de orientação (números não negativos, meses inteiros, exemplos) \\ \hline
+Tempo zero & C=\textquotesingle{}1000\textquotesingle{}, i=\textquotesingle{}1\textquotesingle{}, n=\textquotesingle{}0\textquotesingle{} & Montante Final: R\$ 1000.00 & Montante final: R\$ 1.000,00 \\ \hline
+Taxa zero & C=\textquotesingle{}1000\textquotesingle{}, i=\textquotesingle{}0\textquotesingle{}, n=\textquotesingle{}12\textquotesingle{} & Montante Final: R\$ 1000.00 & Montante final: R\$ 1.000,00 \\ \hline
+Tempo não inteiro & C=\textquotesingle{}1000\textquotesingle{}, i=\textquotesingle{}1\textquotesingle{}, n=\textquotesingle{}12,5\textquotesingle{} & Erro: Introduza apenas numeros. & Mensagem de orientação (números não negativos, meses inteiros, exemplos) \\ \hline
+Campo vazio & C=\textquotesingle{}\textquotesingle{}, i=\textquotesingle{}1\textquotesingle{}, n=\textquotesingle{}12\textquotesingle{} & Preencha todos os campos. & Preencha os três campos. \\ \hline
+\end{tabular}
+\par\vspace{0.1cm}
+{\small Fonte: Elaborada pelo autor (2026), com o script \texttt{executar\_trechos.py} (Apêndice~\ref{ap:registro}).}
+\end{table}
+
+\begin{table}[htb]
+\centering
+\caption{Execução do trecho de persistência (Código~\ref{lst:json}) na versão anterior e na corrigida}
+\label{tab:execucao-persistencia}
+\footnotesize
+\begin{tabular}{L{3.2cm} L{5.6cm} L{5.6cm}}
+\hline
+Cenário & Versão anterior & Versão corrigida \\ \hline
+Salvar o perfil e reabrir & salvar: ok; reabrir: exceção NameError & salvar: ok; reabrir: ok; dados recuperados \\ \hline
+Primeiro uso, sem arquivo salvo & exceção NameError & ok; valores padrão definidos \\ \hline
+Arquivo de dados corrompido & exceção NameError; com \texttt{os} importado: erro silenciado e nenhum atributo definido & ok; valores padrão e aviso ao estudante \\ \hline
+Falha na gravação & sem aviso ao estudante; erro só no console (\texttt{print}) & retornou False; aviso ao estudante \\ \hline
+\end{tabular}
+\par\vspace{0.1cm}
+{\small Fonte: Elaborada pelo autor (2026), com o script \texttt{executar\_trechos.py} (Apêndice~\ref{ap:registro}).}
+\end{table}

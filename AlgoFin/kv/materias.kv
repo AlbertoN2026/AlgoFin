@@ -1,0 +1,52 @@
+<MateriasScreen>:
+    MDBoxLayout:
+        orientation: 'vertical'
+        md_bg_color: 0.95, 0.95, 0.97, 1
+        
+        MDTopAppBar:
+            title: "Matérias Base"
+            left_action_items: [["arrow-left", lambda x: setattr(root.manager, 'current', 'inicial')]]
+        ScrollView:
+            MDBoxLayout:
+                orientation: 'vertical'
+                padding: "20dp"
+                spacing: "20dp"
+                adaptive_height: True
+                
+                MDLabel:
+                    text: "Materiais de Estudo"
+                    font_style: "H6"
+                    bold: True
+                    adaptive_height: True
+
+                # CARD DO MATERIAL FIXO
+                MDCard:
+                    orientation: "vertical"
+                    size_hint: 1, None
+                    height: "140dp"
+                    padding: "16dp"
+                    radius: [15]
+                    elevation: 1
+                    
+                    MDBoxLayout:
+                        spacing: "10dp"
+                        MDIcon:
+                            icon: "file-pdf-box"
+                            theme_text_color: "Custom"
+                            text_color: 1, 0, 0, 1 
+                            font_size: "32sp"
+                        MDLabel:
+                            text: "Introdução à Educação Financeira"
+                            bold: True
+                            font_style: "Subtitle1"
+                    
+                    MDLabel:
+                        text: "Material base sobre juros e poupança (PDF)."
+                        font_style: "Caption"
+                        theme_text_color: "Secondary"
+                        adaptive_height: True
+
+                    MDRaisedButton:
+                        text: "VISUALIZAR"
+                        pos_hint: {"right": 1}
+                        on_release: root.abrir_pdf_drive()

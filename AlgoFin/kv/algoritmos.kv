@@ -1,0 +1,129 @@
+<AlgoritmosScreen>:
+    MDBoxLayout:
+        orientation: 'vertical'
+        md_bg_color: 0.95, 0.95, 0.97, 1
+        
+        MDTopAppBar:
+            title: "5. Bricolagem Algorítmica"
+            elevation: 2
+            left_action_items: [["arrow-left", lambda x: root.voltar()]]
+
+        ScrollView:
+            MDBoxLayout:
+                orientation: 'vertical'
+                padding: "16dp"
+                spacing: "24dp"
+                adaptive_height: True
+
+                # ==========================================
+                # O TUTOR IA (ROBÔ ANIMADO)
+                # ==========================================
+                MDBoxLayout:
+                    id: balao_robo
+                    orientation: 'horizontal'
+                    size_hint_y: None
+                    height: self.minimum_height
+                    spacing: "12dp"
+                    opacity: 0 # Começa invisível para a animação de entrada!
+                    
+                    MDIcon:
+                        icon: "robot-excited-outline"
+                        font_size: "54sp"
+                        theme_text_color: "Custom"
+                        text_color: app.theme_cls.primary_color
+                        pos_hint: {"top": 1}
+                        
+                    MDCard:
+                        id: card_fala
+                        orientation: 'vertical'
+                        md_bg_color: 0.85, 0.92, 0.98, 1
+                        radius: [0, 20, 20, 20]
+                        padding: "16dp"
+                        spacing: "8dp"
+                        size_hint_y: None
+                        height: self.minimum_height
+                        elevation: 1
+                        
+                        MDLabel:
+                            text: root.titulo_robo
+                            font_style: "Subtitle2"
+                            bold: True
+                            theme_text_color: "Primary"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+                            text_size: self.width, None
+                            
+                        MDLabel:
+                            text: root.fala_robo
+                            font_style: "Caption"
+                            theme_text_color: "Secondary"
+                            size_hint_y: None
+                            height: self.texture_size[1]
+                            text_size: self.width, None
+
+                MDSeparator:
+
+                # ==========================================
+                # ÁREA 1: BLOCOS EMBARALHADOS
+                # ==========================================
+                MDLabel:
+                    text: root.titulo_fase
+                    font_style: "H6"
+                    bold: True
+                    theme_text_color: "Primary"
+                    halign: "center"
+
+                MDLabel:
+                    text: "Toque nos blocos abaixo na ordem lógica correta:"
+                    font_style: "Caption"
+                    theme_text_color: "Secondary"
+                    halign: "center"
+
+                # Container que receberá os blocos soltos via Python
+                MDBoxLayout:
+                    id: container_blocos
+                    orientation: 'vertical'
+                    spacing: "8dp"
+                    adaptive_height: True
+
+                MDSeparator:
+
+                # ==========================================
+                # ÁREA 2: O ALGORITMO MONTADO PELO ALUNO
+                # ==========================================
+                MDLabel:
+                    text: "Seu Algoritmo (Sequência Final):"
+                    font_style: "Subtitle2"
+                    bold: True
+                    theme_text_color: "Custom"
+                    text_color: 0.2, 0.6, 0.2, 1
+                    halign: "center"
+
+                # Container que recebe os blocos selecionados
+                MDBoxLayout:
+                    id: container_sequencia
+                    orientation: 'vertical'
+                    spacing: "4dp"
+                    adaptive_height: True
+
+                # ==========================================
+                # BOTÕES DE AÇÃO
+                # ==========================================
+                MDBoxLayout:
+                    orientation: 'horizontal'
+                    spacing: "16dp"
+                    size_hint_y: None
+                    height: "50dp"
+
+                    MDRectangleFlatButton:
+                        text: "LIMPAR TUDO"
+                        theme_text_color: "Error"
+                        line_color: 0.8, 0.1, 0.1, 1
+                        size_hint_x: 0.4
+                        on_release: root.limpar_sequencia()
+
+                    MDRaisedButton:
+                        text: "COMPILAR CÓDIGO"
+                        md_bg_color: app.theme_cls.primary_color
+                        size_hint_x: 0.6
+                        on_release: root.validar_algoritmo()

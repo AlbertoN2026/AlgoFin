@@ -1,0 +1,67 @@
+<PerfilScreen>:
+    MDBoxLayout:
+        orientation: 'vertical'
+        md_bg_color: 0.95, 0.95, 0.97, 1
+        
+        MDTopAppBar:
+            id: toolbar
+            title: "Perfil"
+            left_action_items: [["arrow-left", lambda x: root.voltar()]]
+            right_action_items: [["pencil", lambda x: root.toggle_edit()]]
+        
+        ScrollView:
+            MDBoxLayout:
+                orientation: 'vertical'
+                padding: "24dp"
+                spacing: "30dp"
+                # --- AS LINHAS DE OURO ---
+                size_hint_y: None
+                height: self.minimum_height
+                # -------------------------
+                
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    spacing: "15dp"
+                    size_hint_y: None
+                    height: self.minimum_height
+                    
+                    MDIcon:
+                        icon: "account-circle"
+                        font_size: "80sp"
+                        pos_hint: {"center_x": .5}
+                        theme_text_color: "Primary"
+                        
+                    MDTextField:
+                        id: field_nome
+                        text: app.user_name
+                        hint_text: "Nome"
+                        readonly: not root.edit_mode
+                        mode: "line"
+                        halign: "center"
+                        # Força o campo a ter espaço
+                        size_hint_y: None
+                        height: "65dp"
+
+                MDCard:
+                    orientation: "vertical"
+                    padding: "16dp"
+                    spacing: "20dp"
+                    radius: [15]
+                    size_hint_y: None
+                    height: self.minimum_height
+                    
+                    MDTextField:
+                        id: field_escola
+                        text: app.escola
+                        hint_text: "Escola"
+                        readonly: not root.edit_mode
+                        size_hint_y: None
+                        height: "65dp"
+                        
+                    MDTextField:
+                        id: field_turma
+                        text: app.turma
+                        hint_text: "Turma"
+                        readonly: not root.edit_mode
+                        size_hint_y: None
+                        height: "65dp"

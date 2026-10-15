@@ -1,0 +1,183 @@
+<MenuCard@MDCard>:
+    orientation: "vertical"
+    size_hint: 1, None
+    height: "130dp"
+    padding: "12dp"
+    radius: [15]
+    ripple_behavior: True
+    icon: ""
+    text: ""
+    subtext: ""
+    MDIcon:
+        icon: root.icon
+        font_size: "38sp"
+        pos_hint: {"center_x": .5}
+        theme_text_color: "Primary"
+    MDLabel:
+        text: root.text
+        bold: True
+        halign: "center"
+        adaptive_height: True
+    MDLabel:
+        text: root.subtext
+        halign: "center"
+        font_style: "Caption"
+        adaptive_height: True
+
+<InicialScreen>:
+    md_bg_color: 0.95, 0.95, 0.97, 1
+    MDBoxLayout:
+        orientation: 'vertical'
+        
+        MDTopAppBar:
+            title: "AlgoFin"
+            elevation: 2
+            left_action_items: [["menu", lambda x: app.root.ids.nav_drawer.set_state("open")]]
+            right_action_items: [["brain", lambda x: None]] # Ícone que representa o Pensamento Computacional
+        
+        ScrollView:
+            MDBoxLayout:
+                orientation: 'vertical'
+                padding: "16dp"
+                spacing: "20dp"
+                adaptive_height: True
+                
+                # --- CARD DE BOAS VINDAS ---
+                MDCard:
+                    size_hint: 1, None
+                    height: "120dp"
+                    radius: [20]
+                    padding: "16dp"
+                    md_bg_color: app.theme_cls.primary_color
+                    MDBoxLayout:
+                        orientation: 'vertical'
+                        MDLabel:
+                            text: "Bem-vindo,"
+                            theme_text_color: "Custom"
+                            text_color: 1, 1, 1, 0.8
+                            font_style: "Caption"
+                        MDLabel:
+                            text: app.user_name
+                            theme_text_color: "Custom"
+                            text_color: 1, 1, 1, 1
+                            font_style: "H6"
+                            bold: True
+
+                # --- MENU DE FERRAMENTAS E INVESTIGAÇÃO ---
+                MDGridLayout:
+                    cols: 2
+                    spacing: "12dp"
+                    adaptive_height: True
+                    MenuCard:
+                        icon: "piggy-bank"
+                        text: "Poupança"
+                        subtext: "Cenários de Consumo" 
+                        on_release: root.manager.current = 'poupanca'
+                    MenuCard:
+                        icon: "chart-line"
+                        text: "Juros"
+                        subtext: "Simulações Financeiras" 
+                        on_release: root.manager.current = 'juros'
+                    MenuCard:
+                        icon: "robot-happy"
+                        text: "Tutor IA"
+                        subtext: "Apoio Investigativo" 
+                        on_release: root.manager.current = 'tutor_ia'
+                    MenuCard:
+                        icon: "trophy"
+                        text: "Módulo IV" # Formalizando o 4º Módulo exigido
+                        subtext: "Desafios Integradores" 
+                        on_release: root.manager.current = 'desafios'
+
+                MDLabel:
+                    text: "Trilhas Modulares"
+                    font_style: "H6"
+                    bold: True
+                    adaptive_height: True
+
+                # ==========================================
+                # MÓDULO I (6º e 7º anos)
+                # ==========================================
+                MDCard:
+                    orientation: "horizontal"
+                    padding: "15dp"
+                    spacing: "15dp"
+                    radius: [15]
+                    elevation: 1
+                    size_hint_y: None
+                    height: "100dp"
+                    on_release: root.manager.current = 'modulo1'
+                    MDIcon:
+                        icon: "puzzle-outline"
+                        font_size: "40sp"
+                        theme_text_color: "Custom"
+                        text_color: 0.2, 0.6, 0.2, 1
+                        pos_hint: {"center_y": .5}
+                    MDBoxLayout:
+                        orientation: "vertical"
+                        MDLabel:
+                            text: "Módulo I"
+                            bold: True
+                            font_style: "Subtitle1"
+                        MDLabel:
+                            text: "Fundamentos do Pensamento Computacional" #
+                            theme_text_color: "Secondary"
+                            font_style: "Caption"
+
+                # ==========================================
+                # MÓDULO II (8º ano)
+                # ==========================================
+                MDCard:
+                    orientation: "horizontal"
+                    padding: "15dp"
+                    spacing: "15dp"
+                    radius: [15]
+                    elevation: 1
+                    size_hint_y: None
+                    height: "100dp"
+                    on_release: root.manager.current = 'modulo2'
+                    MDIcon:
+                        icon: "chart-line"
+                        font_size: "40sp"
+                        theme_text_color: "Custom"
+                        text_color: 0.8, 0.5, 0.1, 1
+                        pos_hint: {"center_y": .5}
+                    MDBoxLayout:
+                        orientation: "vertical"
+                        MDLabel:
+                            text: "Módulo II"
+                            bold: True
+                            font_style: "Subtitle1"
+                        MDLabel:
+                            text: "Modelagem Matemática e Tomada de Decisão" #[cite: 1]
+                            theme_text_color: "Secondary"
+                            font_style: "Caption"
+
+                # ==========================================
+                # MÓDULO III (9º ano)
+                # ==========================================
+                MDCard:
+                    orientation: "horizontal"
+                    padding: "15dp"
+                    spacing: "15dp"
+                    radius: [15]
+                    elevation: 1
+                    size_hint_y: None
+                    height: "100dp"
+                    on_release: root.manager.current = 'modulo3'
+                    MDIcon:
+                        icon: "bank"
+                        font_size: "40sp"
+                        theme_text_color: "Custom"
+                        text_color: 0.2, 0.5, 0.8, 1
+                        pos_hint: {"center_y": .5}
+                    MDBoxLayout:
+                        orientation: "vertical"
+                        MDLabel:
+                            text: "Módulo III"
+                            bold: True
+                            font_style: "Subtitle1"
+                        MDLabel:
+                            text: "Modelagem Computacional Avançada" #[cite: 1]
+                            theme_text_color: "Secondary"
+                            font_style: "Caption"
