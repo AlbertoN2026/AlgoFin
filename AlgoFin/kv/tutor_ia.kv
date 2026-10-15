@@ -1,0 +1,31 @@
+<TutorScreen>:
+    MDBoxLayout:
+        orientation: 'vertical'
+        MDTopAppBar:
+            title: "Tutor IA"
+            left_action_items: [["arrow-left", lambda x: setattr(root.manager, 'current', 'inicial')]]
+            right_action_items: [["key-variant", lambda x: root.abrir_config_chave(), "Chave de acesso (professor)"]]
+        ScrollView:
+            id: chat_scroll
+            MDBoxLayout:
+                id: chat_list
+                orientation: 'vertical'
+                spacing: "12dp"
+                padding: "12dp"
+                adaptive_height: True
+        # Barra de envio: campo e botão alinhados ao centro, botão sempre inteiro
+        MDBoxLayout:
+            size_hint_y: None
+            height: "76dp"
+            padding: "8dp", "4dp", "4dp", "8dp"
+            spacing: "4dp"
+            MDTextField:
+                id: input_msg
+                hint_text: "Sua dúvida..."
+                size_hint_x: 1
+                pos_hint: {"center_y": .5}
+                on_text_validate: root.enviar()
+            MDIconButton:
+                icon: "send"
+                pos_hint: {"center_y": .5}
+                on_release: root.enviar()
