@@ -1,0 +1,19 @@
+# Credenciais (nunca versionar)
+.env
+*.env
+tutor.cfg
+
+# Dados de uso gerados ao rodar o app
+user_data.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Build Android (Buildozer)
+.buildozer/
+bin/
+*.apk
+*.aab
