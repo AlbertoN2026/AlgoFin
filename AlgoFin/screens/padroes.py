@@ -98,7 +98,7 @@ class PadroesScreen(MDScreen):
             if self.nivel_desafio < len(self.fases_padroes) - 1:
                 botao_acao = self.avancar_fase
             else:
-                texto += "\n\nAnálise concluída. O reconhecimento de padrões estruturais é uma competência essencial para interpretar cenários econômicos e antecipar tomadas de decisão.\n\n✨ FASE 7 DESBLOQUEADA ✨"
+                texto += "\n\nAnálise concluída. O reconhecimento de padrões estruturais é uma competência essencial para interpretar cenários econômicos e antecipar tomadas de decisão.\n\nFASE 7 DESBLOQUEADA"
                 app = MDApp.get_running_app()
                 if app.nivel_modulo1 < 7:
                     app.nivel_modulo1 = 7

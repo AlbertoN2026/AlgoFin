@@ -209,7 +209,7 @@ class AlgoritmosScreen(MDScreen):
             if self.nivel_desafio < len(self.fases_algoritmo) - 1:
                 acao = self.avancar_fase
             else:
-                texto += "\n\nVocê dominou a arte de organizar variáveis financeiras em fluxos lógicos! \n\n✨ FASE 6 DESBLOQUEADA ✨"
+                texto += "\n\nVocê dominou a arte de organizar variáveis financeiras em fluxos lógicos! \n\nFASE 6 DESBLOQUEADA"
                 
                 app = MDApp.get_running_app()
                 if app.nivel_modulo1 < 6:

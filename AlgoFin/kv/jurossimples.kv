@@ -112,9 +112,13 @@
                         theme_text_color: "Custom"
                         text_color: 0.7, 0.7, 0.7, 1
                         halign: "center"
+                        size_hint_y: None
+                        height: self.texture_size[1]
 
                     MDBoxLayout:
                         orientation: 'horizontal'
+                        size_hint_y: None
+                        height: "40dp"
                         MDLabel:
                             text: "JUROS (J):"
                             font_style: "Subtitle2"
@@ -133,6 +137,8 @@
 
                     MDBoxLayout:
                         orientation: 'horizontal'
+                        size_hint_y: None
+                        height: "40dp"
                         MDLabel:
                             text: "MONTANTE (M):"
                             font_style: "Subtitle2"

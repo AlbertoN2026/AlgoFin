@@ -148,7 +148,7 @@ class ProblemasOlitefScreen(MDScreen):
         if index_escolhido == self.questao_atual["correta"]:
             self.acertos_val += 1
             if self.acertos_val >= 5:
-                self.mostrar_popup("🏆 VOCÊ VENCEU O MÓDULO II!", "Sensacional! Você dominou o Simulador, a Matemática Financeira e os Juros Compostos. Você está pronto para investir no mundo real!", True)
+                self.mostrar_popup("VOCÊ VENCEU O MÓDULO II!", "Sensacional! Você dominou o Simulador, a Matemática Financeira e os Juros Compostos. Você está pronto para investir no mundo real!", True)
             else:
                 self.mostrar_popup("Resposta Exata!", "Muito bem, lógica financeira aplicada com sucesso! Faltam poucas para a vitória.", False)
         else:

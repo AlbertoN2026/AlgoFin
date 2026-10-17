@@ -52,7 +52,7 @@ class AnaliseInvestScreen(MDScreen):
                 "25 anos."
             ],
             "correta": 1,
-            "msg_acerto": "Lógica exata! Se a empresa devolve 25% do investimento por ano (ROI = 25%), serão precisos exatamente 4 anos (25% x 4 = 100%) para recuperar todo o capital inicial investido.\n\n✨ Fase 6 Desbloqueada ✨"
+            "msg_acerto": "Lógica exata! Se a empresa devolve 25% do investimento por ano (ROI = 25%), serão precisos exatamente 4 anos (25% x 4 = 100%) para recuperar todo o capital inicial investido.\n\nFase 6 Desbloqueada"
         }
     ]
 

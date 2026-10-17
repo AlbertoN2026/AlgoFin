@@ -117,8 +117,8 @@ class OrcamentoScreen(MDScreen):
                 botao_acao = self.avancar_cenario
             else:
                 # VENCEU TODOS OS 4 DESAFIOS
-                titulo = "🏆 ARQUITETO FINANCEIRO!"
-                texto = "SENSACIONAL! Sobreviver à inflação, consertar imprevistos e investir no futuro... Você provou que a Lógica Computacional é a chave para a riqueza real!\n\n✨ FASE 3 DESBLOQUEADA ✨"
+                titulo = "ARQUITETO FINANCEIRO!"
+                texto = "SENSACIONAL! Sobreviver à inflação, consertar imprevistos e investir no futuro... Você provou que a Lógica Computacional é a chave para a riqueza real!\n\nFASE 3 DESBLOQUEADA"
                 
                 app = MDApp.get_running_app()
                 if app.nivel_modulo1 < 3:

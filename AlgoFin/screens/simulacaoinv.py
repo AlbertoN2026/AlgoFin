@@ -49,7 +49,7 @@ class SimulacaoInvScreen(MDScreen):
                 "Porque a taxa de juros aumenta sozinha com o tempo."
             ],
             "correta": 1,
-            "msg_acerto": "Conceito dominado! Essa é a essência dos investimentos. Os juros trabalham sobre o montante atualizado, então cada novo depósito aumenta a base de cálculo para o mês seguinte.\n\n✨ Progresso Salvo! Fase 6 Desbloqueada ✨"
+            "msg_acerto": "Conceito dominado! Essa é a essência dos investimentos. Os juros trabalham sobre o montante atualizado, então cada novo depósito aumenta a base de cálculo para o mês seguinte.\n\nProgresso Salvo! Fase 6 Desbloqueada"
         }
     ]
 

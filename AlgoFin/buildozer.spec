@@ -6,7 +6,7 @@ package.name = algofinteste
 package.domain = br.com.aldair
 source.dir = .
 source.include_exts = py,png,jpg,kv,json
-version = 1.1
+version = 1.2
 
 # 2. Requisitos: Limpos e Sem Travas de Versão do Python
 requirements = python3,kivy==2.3.0,kivymd==1.1.1,requests,urllib3,certifi,idna,charset-normalizer

@@ -55,7 +55,7 @@ class JurosSimplesScreen(MDScreen):
                 "Eles ficam do mesmo tamanho"
             ],
             "correta": 0,
-            "msg_acerto": "Lógica estrutural compreendida! Nos Juros Simples, as variáveis são lineares e proporcionais. Se o tempo dobra, o juro dobra.\n\n✨ Fase 2 Desbloqueada ✨"
+            "msg_acerto": "Lógica estrutural compreendida! Nos Juros Simples, as variáveis são lineares e proporcionais. Se o tempo dobra, o juro dobra.\n\nFase 2 Desbloqueada"
         }
     ]
 

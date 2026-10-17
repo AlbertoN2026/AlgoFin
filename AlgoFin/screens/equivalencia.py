@@ -46,7 +46,7 @@ class EquivalenciaScreen(MDScreen):
                 "O Valor Presente não se altera, pois a dívida original já estava fechada."
             ],
             "correta": 1,
-            "msg_acerto": "Pensamento estruturado impecável! É por isso que, quando a taxa Selic sobe, os títulos de renda fixa perdem valor de mercado (marcação a mercado). Quanto maior a taxa, menor o valor presente!\n\n✨ Fase 4 Desbloqueada ✨"
+            "msg_acerto": "Pensamento estruturado impecável! É por isso que, quando a taxa Selic sobe, os títulos de renda fixa perdem valor de mercado (marcação a mercado). Quanto maior a taxa, menor o valor presente!\n\nFase 4 Desbloqueada"
         }
     ]
 

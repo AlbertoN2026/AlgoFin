@@ -20,6 +20,10 @@ URL_IA = "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-fla
 
 MSG_SEM_CHAVE = ("O tutor está desativado neste aparelho porque a chave de acesso "
                  "não foi configurada. Peça ajuda ao professor.")
+# Emojis e símbolos que a fonte do aplicativo (Roboto) não tem apareceriam como
+# quadrados; setas viram "->" e o restante é removido da resposta do tutor.
+SEM_GLIFO = re.compile("[\U0001F000-\U0001FAFF\u2600-\u27BF\u2B00-\u2BFF\uFE0F\u200D]")
+
 MSG_SEM_INTERNET = ("Não consegui falar com o tutor: o aparelho parece estar sem "
                     "internet. Os outros módulos do AlgoFin funcionam normalmente.")
 
@@ -137,6 +141,8 @@ class TutorScreen(MDScreen):
 
         # Limpeza e formatação de texto para o KivyMD (Negrito e Itálico)
         txt = txt.replace('\\n', '\n')
+        txt = txt.replace('`', '').replace('\u2192', '->').replace('\u2190', '<-')
+        txt = SEM_GLIFO.sub('', txt)
         txt = re.sub(r'\*\*(.*?)\*\*', r'[b]\1[/b]', txt)
         txt = re.sub(r'\*(.*?)\*', r'[i]\1[/i]', txt)
 
@@ -187,12 +193,12 @@ class TutorScreen(MDScreen):
     # Configuração da chave pelo professor (fica só neste aparelho)
     # ==========================================================
     def abrir_config_chave(self):
-        campo = MDTextField(hint_text="Chave de acesso (somente o professor)",
+        campo = MDTextField(hint_text="Chave de acesso",
                             password=True)
         conteudo = MDBoxLayout(orientation="vertical", spacing="12dp",
                                size_hint_y=None, height="120dp")
         conteudo.add_widget(MDLabel(
-            text="A chave fica gravada só neste aparelho e não aparece na tela.",
+            text="Somente para o professor. A chave fica gravada só neste aparelho e não aparece na tela.",
             font_style="Caption", theme_text_color="Secondary"))
         conteudo.add_widget(campo)
 
@@ -201,6 +207,8 @@ class TutorScreen(MDScreen):
             self.dialogo_chave.dismiss()
             Snackbar(text="Chave salva neste aparelho." if ok
                      else "Não foi possível salvar a chave.").open()
+            if ok:
+                self.adicionar_balao("Tutor IA", "Chave configurada. Pode mandar sua dúvida!", "left")
 
         def remover(*_):
             ok = remover_chave_professor()

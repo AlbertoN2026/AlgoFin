@@ -50,7 +50,7 @@ class AlgoritmosMod2Screen(MDScreen):
                 "Tanto faz, o saldo final no bolso será exatamente o mesmo."
             ],
             "correta": 0,
-            "msg_acerto": "Isso mesmo! Atenção à matemática fina: se você paga à vista com 10% de desconto (Sobra R$ 100). Ao investir esses 100 a 10%, no fim do mês você tem R$ 110. No parcelado, você investe R$ 1000 a 10% (= R$ 1100), mas tem que pagar a dívida de R$ 1000, sobrando apenas R$ 100. Pagar à vista vence!\n\n✨ Fase 8 Desbloqueada ✨"
+            "msg_acerto": "Isso mesmo! Atenção à matemática fina: se você paga à vista com 10% de desconto (Sobra R$ 100). Ao investir esses 100 a 10%, no fim do mês você tem R$ 110. No parcelado, você investe R$ 1000 a 10% (= R$ 1100), mas tem que pagar a dívida de R$ 1000, sobrando apenas R$ 100. Pagar à vista vence!\n\nFase 8 Desbloqueada"
         }
     ]
 

@@ -47,7 +47,7 @@ class DescontosScreen(MDScreen):
                 "Não. O desconto real será de 44%."
             ],
             "correta": 1,
-            "msg_acerto": "Excelente abstração matemática! Descontos sucessivos não se somam. Se algo custa 100, tira 20% = 80. Depois tira 20% de 80 = 64. O desconto total foi de 36, e não de 40!\n\n✨ Fase 3 (Inflação) Desbloqueada ✨"
+            "msg_acerto": "Excelente abstração matemática! Descontos sucessivos não se somam. Se algo custa 100, tira 20% = 80. Depois tira 20% de 80 = 64. O desconto total foi de 36, e não de 40!\n\nFase 3 (Inflação) Desbloqueada"
         }
     ]
 

@@ -48,7 +48,7 @@ class InflacaoScreen(MDScreen):
                 "Não mudou nada, as contas se anulam."
             ],
             "correta": 1,
-            "msg_acerto": "Visão Crítica desbloqueada! Essa é a maior ilusão financeira de todas. Se o seu salário sobe menos que a inflação, você na verdade ficou mais pobre, pois seu dinheiro compra menos coisas.\n\n✨ Progresso Salvo! Fase 4 Desbloqueada ✨"
+            "msg_acerto": "Visão Crítica desbloqueada! Essa é a maior ilusão financeira de todas. Se o seu salário sobe menos que a inflação, você na verdade ficou mais pobre, pois seu dinheiro compra menos coisas.\n\nProgresso Salvo! Fase 4 Desbloqueada"
         }
     ]
 

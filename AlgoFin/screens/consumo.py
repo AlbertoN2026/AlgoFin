@@ -127,7 +127,7 @@ class ConsumoScreen(MDScreen):
                 else:
                     # Zerou todas as fases
                     titulo = "Análise Concluída com Sucesso!"
-                    texto = "Parabéns. Você demonstrou capacidade lógica para diferenciar necessidades de desejos, mantendo o controle estrutural do seu orçamento perante os estímulos de consumo.\n\n✨ FASE 4 DESBLOQUEADA ✨"
+                    texto = "Parabéns. Você demonstrou capacidade lógica para diferenciar necessidades de desejos, mantendo o controle estrutural do seu orçamento perante os estímulos de consumo.\n\nFASE 4 DESBLOQUEADA"
                     
                     app = MDApp.get_running_app()
                     if app.nivel_modulo1 < 4:

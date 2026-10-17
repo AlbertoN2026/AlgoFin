@@ -51,7 +51,7 @@ class Problemas3Screen(MDScreen):
                 "A equação é 20x - 500 = 10x."
             ],
             "correta": 1,
-            "msg_acerto": "Medalhista OBMF! A Receita (20x) deve ser igual ao Custo Fixo (500) mais o Custo Variável (10x). Resolvendo: 20x - 10x = 500 -> 10x = 500 -> x = 50 camisetas.\n\n✨ A Fase Final (10) Desbloqueada ✨"
+            "msg_acerto": "Medalhista OBMF! A Receita (20x) deve ser igual ao Custo Fixo (500) mais o Custo Variável (10x). Resolvendo: 20x - 10x = 500 -> 10x = 500 -> x = 50 camisetas.\n\nA Fase Final (10) Desbloqueada"
         }
     ]
 

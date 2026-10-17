@@ -139,7 +139,7 @@ class AbstracaoScreen(MDScreen):
             if self.nivel_desafio < len(self.fases_abstracao) - 1:
                 botao_acao = self.avancar_fase
             else:
-                texto += "\n\nVocê concluiu o módulo de Abstração! Ignorar a emoção e extrair a lógica matemática é a principal defesa contra as armadilhas financeiras.\n\n✨ FASE 9 DESBLOQUEADA ✨"
+                texto += "\n\nVocê concluiu o módulo de Abstração! Ignorar a emoção e extrair a lógica matemática é a principal defesa contra as armadilhas financeiras.\n\nFASE 9 DESBLOQUEADA"
                 app = MDApp.get_running_app()
                 if app.nivel_modulo1 < 9:
                     app.nivel_modulo1 = 9

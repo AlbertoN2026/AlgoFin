@@ -51,7 +51,7 @@ class CustoOportunidadeScreen(MDScreen):
                 "O lucro econômico e o lucro contábil são sempre iguais se você trabalhar duro."
             ],
             "correta": 0,
-            "msg_acerto": "Medalha de Ouro em Teoria Econômica! Você nunca ganha 'tudo'. Ao escolher o freelance, você abriu mão do sossego e do juro passivo de R$ 1.050. Mas como R$ 5.000 > R$ 1.050, o seu Lucro Econômico foi positivo!\n\n✨ Fase 5 Desbloqueada ✨"
+            "msg_acerto": "Medalha de Ouro em Teoria Econômica! Você nunca ganha 'tudo'. Ao escolher o freelance, você abriu mão do sossego e do juro passivo de R$ 1.050. Mas como R$ 5.000 > R$ 1.050, o seu Lucro Econômico foi positivo!\n\nFase 5 Desbloqueada"
         }
     ]
 

@@ -45,7 +45,7 @@ class Condicionais3Screen(MDScreen):
                 "Porque o imposto de renda não cobra de quem ganha mais que o limite."
             ],
             "correta": 1,
-            "msg_acerto": "Medalha de Programador! O ELSE é o famoso 'caso contrário'. Se nenhuma das regras de cima funcionou, o código executa o bloco ELSE por eliminação. É assim que os maiores salários são taxados.\n\n✨ Fase 8 Desbloqueada ✨"
+            "msg_acerto": "Medalha de Programador! O ELSE é o famoso 'caso contrário'. Se nenhuma das regras de cima funcionou, o código executa o bloco ELSE por eliminação. É assim que os maiores salários são taxados.\n\nFase 8 Desbloqueada"
         }
     ]
 

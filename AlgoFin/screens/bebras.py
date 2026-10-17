@@ -139,7 +139,7 @@ class BebrasScreen(MDScreen):
             if self.questao_atual_idx < 4: # Se for menor que a 5ª questão (índice 4)
                 botao_acao = self.proxima_questao
             else:
-                texto += "\n\n🏆 PARABÉNS! Você superou o Módulo de Desafios Integradores. O seu domínio sobre abstração, algoritmos e matemática financeira está em nível de excelência!"
+                texto += "\n\nPARABÉNS! Você superou o Módulo de Desafios Integradores. O seu domínio sobre abstração, algoritmos e matemática financeira está em nível de excelência!"
                 botao_acao = self.concluir_modulo
         else:
             titulo = "Falha na Compilação"

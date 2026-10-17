@@ -50,7 +50,7 @@ class ModelagemCompScreen(MDScreen):
                 "Comprar carros mais caros, pois a taxa de juros do banco cai."
             ],
             "correta": 1,
-            "msg_acerto": "Medalha garantida! Alongar prazo é uma armadilha matemática (a parcela diminui, mas o juro total explode). A única defesa contra os juros compostos é diminuir o Valor Financiado com uma entrada forte!\n\n✨ Fase 9 (A Batalha Final) Desbloqueada ✨"
+            "msg_acerto": "Medalha garantida! Alongar prazo é uma armadilha matemática (a parcela diminui, mas o juro total explode). A única defesa contra os juros compostos é diminuir o Valor Financiado com uma entrada forte!\n\nFase 9 (A Batalha Final) Desbloqueada"
         }
     ]
 

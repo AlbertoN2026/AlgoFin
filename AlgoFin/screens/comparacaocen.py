@@ -48,7 +48,7 @@ class ComparacaoCenScreen(MDScreen):
                 "Nenhuma. As duas opções darão exatamente o mesmo lucro de R$ 50,00."
             ],
             "correta": 2,
-            "msg_acerto": "Resposta digna de Medalha de Ouro! Essa é uma pegadinha clássica em provas de Olimpíadas. No primeiro mês (t=1), a base de cálculo é apenas o capital inicial para AMBOS os sistemas, gerando rendimentos idênticos.\n\n✨ Progresso Salvo! Fase 7 Desbloqueada ✨"
+            "msg_acerto": "Resposta digna de Medalha de Ouro! Essa é uma pegadinha clássica em provas de Olimpíadas. No primeiro mês (t=1), a base de cálculo é apenas o capital inicial para AMBOS os sistemas, gerando rendimentos idênticos.\n\nProgresso Salvo! Fase 7 Desbloqueada"
         }
     ]
 

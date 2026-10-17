@@ -47,7 +47,7 @@ class AlgoritmosIterativosScreen(MDScreen):
                 "Uma função matemática linear simples."
             ],
             "correta": 1,
-            "msg_acerto": "Lógica aprovada! Um loop 'FOR (mes = 1; mes <= 360)' roda o cálculo atualizando o saldo 360 vezes em frações de segundo. Isso é o coração do sistema bancário!\n\n✨ Fase 7 Desbloqueada ✨"
+            "msg_acerto": "Lógica aprovada! Um loop 'FOR (mes = 1; mes <= 360)' roda o cálculo atualizando o saldo 360 vezes em frações de segundo. Isso é o coração do sistema bancário!\n\nFase 7 Desbloqueada"
         }
     ]
 

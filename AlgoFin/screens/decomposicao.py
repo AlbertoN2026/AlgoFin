@@ -134,7 +134,7 @@ class DecomposicaoScreen(MDScreen):
             if self.nivel_desafio < len(self.fases_decomposicao) - 1:
                 botao_acao = self.avancar_fase
             else:
-                texto += "\n\nProcessamento finalizado. A decomposição de problemas é a chave para transformar impossibilidades matemáticas em planos de ação.\n\n✨ FASE 8 DESBLOQUEADA ✨"
+                texto += "\n\nProcessamento finalizado. A decomposição de problemas é a chave para transformar impossibilidades matemáticas em planos de ação.\n\nFASE 8 DESBLOQUEADA"
                 app = MDApp.get_running_app()
                 if app.nivel_modulo1 < 8:
                     app.nivel_modulo1 = 8

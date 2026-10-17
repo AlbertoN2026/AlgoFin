@@ -49,7 +49,7 @@ class Otimizacao3Screen(MDScreen):
                 "Distribuir o capital entre diferentes ativos para diluir o Risco Sistêmico sem abrir mão de um bom retorno."
             ],
             "correta": 2,
-            "msg_acerto": "Resposta de Mestre! Você dominou a base da engenharia financeira. Diversificação é o único 'almoço grátis' do mercado financeiro!\n\n🏆 PARABÉNS! VOCÊ ZEROU O MÓDULO III! 🏆"
+            "msg_acerto": "Resposta de Mestre! Você dominou a base da engenharia financeira. Diversificação é o único 'almoço grátis' do mercado financeiro!\n\nPARABÉNS! VOCÊ ZEROU O MÓDULO III!"
         }
     ]
 

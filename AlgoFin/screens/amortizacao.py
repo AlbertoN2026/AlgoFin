@@ -51,7 +51,7 @@ class AmortizacaoScreen(MDScreen):
                 "Os juros aumentam a cada mês, deixando a parcela mais cara no final."
             ],
             "correta": 1,
-            "msg_acerto": "Perfeito! O termo SAC significa Sistema de Amortização Constante. Como você abate o mesmo valor da dívida todo mês, os juros despencam rapidamente!\n\n✨ Fase 3 Desbloqueada ✨"
+            "msg_acerto": "Perfeito! O termo SAC significa Sistema de Amortização Constante. Como você abate o mesmo valor da dívida todo mês, os juros despencam rapidamente!\n\nFase 3 Desbloqueada"
         }
     ]
 

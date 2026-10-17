@@ -49,6 +49,12 @@ Na aba **Actions** do GitHub, execute o fluxo **Compilar APK AlgoFin**. O APK fi
 
 ## Versões
 
+- **v1.2-defesa** — ajustes encontrados ao aplicar o roteiro de verificação no aparelho (os cálculos não mudaram):
+  - perfil: o teclado não abria para editar nome, escola e turma no Android (o Kivy deixa "não focável" o campo criado como somente leitura);
+  - símbolos ausentes na fonte do aplicativo (seta e emojis) apareciam como quadrados; o tutor também remove esses símbolos e as crases das respostas;
+  - "em 1 mês" no título da tabela; painéis de resultado das fases Juros Simples e Descontos sem sobreposição de textos;
+  - tutor: confirmação após salvar a chave; texto do diálogo da chave dentro do campo;
+  - material teórico próprio para a fase 1 do Módulo I.
 - **v1.1-defesa** — correções após a conferência descrita na dissertação:
   - valores em reais no padrão brasileiro (R$ 1.234,56) em todas as telas, com arredondamento ao centavo meio para cima, inclusive nos empates exatos (cenário C5);
   - tabelas do SAC e do Price com as cinco colunas visíveis no celular e paginação em português ("Meses 1 a 12 de 120");

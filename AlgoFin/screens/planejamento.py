@@ -269,9 +269,8 @@ class PlanejamentoScreen(MDScreen):
         self.btn_d_texto = q["opcoes"][3]
 
     def abrir_pdf_teoria(self):
-        # Mesmo material da tela "Materiais de Estudo" (Introdução à Educação Financeira).
-        # Para usar um PDF próprio desta fase, troque o link abaixo.
-        link = "https://drive.google.com/file/d/1TtcZ4y3RR_UvM6nsp9U4rrlWUhwoLl0i/view?usp=sharing"
+        # Material Teórico do Módulo I (AlgoFin), cópia também na pasta "materiais" do repositório
+        link = "https://drive.google.com/file/d/1wumjhmoVwc4k_vpK9fxP_KLsLz0jPHwV/view?usp=sharing"
         webbrowser.open(link)
 
     def verificar_resposta(self, opcao_escolhida):
@@ -285,7 +284,7 @@ class PlanejamentoScreen(MDScreen):
                 self.carregar_questao()
             else:
                 titulo = "Sistema Financeiro Salvo!"
-                texto = q["feedback_acerto"] + "\n\nVocê eliminou todos os Bugs e otimizou os orçamentos! \n\n⭐ FASE 2 DESBLOQUEADA!"
+                texto = q["feedback_acerto"] + "\n\nVocê eliminou todos os Bugs e otimizou os orçamentos! \n\nFASE 2 DESBLOQUEADA!"
                 
                 app = MDApp.get_running_app()
                 if app.nivel_modulo1 < 2:

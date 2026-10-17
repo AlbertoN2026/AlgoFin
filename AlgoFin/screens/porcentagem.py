@@ -84,7 +84,7 @@ class PorcentagemScreen(MDScreen):
                 botao_acao = self.avancar_fase
             else:
                 # Venceu o Laboratório de Porcentagem
-                texto += "\n\nVocê concluiu o módulo com excelência, demonstrando proficiência no cálculo e na interpretação de taxas. \n\n✨ FASE 5 DESBLOQUEADA ✨"
+                texto += "\n\nVocê concluiu o módulo com excelência, demonstrando proficiência no cálculo e na interpretação de taxas. \n\nFASE 5 DESBLOQUEADA"
                 
                 # Salva o progresso rigorosamente
                 app = MDApp.get_running_app()

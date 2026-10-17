@@ -49,7 +49,7 @@ class Simulacoes3Screen(MDScreen):
                 "Não investir na caderneta de poupança."
             ],
             "correta": 1,
-            "msg_acerto": "Resposta exata! Não importa se você tem 100 mil ou 10 milhões. Se o seu percentual de gasto anual for maior que o percentual de rendimento líquido, o seu saldo vai começar a encolher até a ruína matemática.\n\n✨ Fase 9 Desbloqueada ✨"
+            "msg_acerto": "Resposta exata! Não importa se você tem 100 mil ou 10 milhões. Se o seu percentual de gasto anual for maior que o percentual de rendimento líquido, o seu saldo vai começar a encolher até a ruína matemática.\n\nFase 9 Desbloqueada"
         }
     ]
 

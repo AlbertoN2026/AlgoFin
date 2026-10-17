@@ -50,7 +50,7 @@ class PlanejamentoFinScreen(MDScreen):
                 "Para pagar contas básicas atrasadas."
             ],
             "correta": 1,
-            "msg_acerto": "Pensamento a longo prazo validado! A poupança protege você de imprevistos e usa a força dos Juros Compostos a seu favor.\n\n✨ Progresso Salvo! Fase 5 Desbloqueada ✨"
+            "msg_acerto": "Pensamento a longo prazo validado! A poupança protege você de imprevistos e usa a força dos Juros Compostos a seu favor.\n\nProgresso Salvo! Fase 5 Desbloqueada"
         }
     ]
 

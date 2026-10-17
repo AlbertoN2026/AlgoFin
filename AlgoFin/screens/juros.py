@@ -153,7 +153,7 @@ class JurosScreen(MDScreen):
         nome = "SAC" if sistema == "SAC" else "Price"
         self._titulo_tabela = (f"{nome}: {formata_brl(pv)} a "
                                f"{formata_percentual(taxa_pct)} ao mês "
-                               f"em {int(n)} meses")
+                               f"em {int(n)} {'mês' if int(n) == 1 else 'meses'}")
         self._linhas = linhas
         self._pagina = 0
         self._montar_tabela()

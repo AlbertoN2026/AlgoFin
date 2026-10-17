@@ -46,7 +46,7 @@ class JurosCompostos3Screen(MDScreen):
                 "Porque a taxa de juros cai conforme você envelhece."
             ],
             "correta": 1,
-            "msg_acerto": "Gênio Algorítmico! O tempo multiplica o seu dinheiro sobre ele mesmo. Não importa se você ganha pouco hoje: colocar o expoente para trabalhar o mais cedo possível é o grande segredo das finanças!\n\n✨ Fase 2 Desbloqueada ✨"
+            "msg_acerto": "Gênio Algorítmico! O tempo multiplica o seu dinheiro sobre ele mesmo. Não importa se você ganha pouco hoje: colocar o expoente para trabalhar o mais cedo possível é o grande segredo das finanças!\n\nFase 2 Desbloqueada"
         }
     ]
 
